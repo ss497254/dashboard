@@ -1,0 +1,22 @@
+{
+  "name": "Dashboard",
+  "short_name": "Web dashboard for our god",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "background_color": "#0b0e11",
+  "theme_color": "#fd4d4d",
+  "orientation": "portrait-primary",
+  "splash_pages": null
+}

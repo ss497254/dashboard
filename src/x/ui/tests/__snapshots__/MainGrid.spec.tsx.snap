@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainGrid should match snapshot 1`] = `
+<div
+  class="flex justify-center w-full min-h-screen bg-primary-900"
+  data-testid="main-grid"
+>
+  <div
+    class="relative w-full px-3 "
+    id="main"
+    style="display: flex; grid-template-columns: 1fr; column-gap: 60px;"
+  >
+    Child
+  </div>
+</div>
+`;
