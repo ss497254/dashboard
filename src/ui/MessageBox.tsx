@@ -7,7 +7,7 @@ interface props {
 
 export const MessageBox: React.FC<props> = ({ text, direction }) => {
   return (
-    <div className="max-w-[80%] m-3 rounded-md p-3 text-sm outline-none bg-dark-700 text-dark-100 relative tick">
+    <div className="max-w-[80%] m-3 rounded-md p-3 text-sm outline-none bg-dark-700 relative tick">
       {text}
     </div>
   );

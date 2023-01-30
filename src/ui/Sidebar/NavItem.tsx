@@ -13,7 +13,7 @@ export const NavItem: React.FC<props> = ({ href, icon, title, active }) => {
     <Link href={href}>
       <div
         className={`flex items-center cursor-pointer w-full mb-2 transition font-medium duration-300 bg-white rounded-lg hover:text-green-400 hover:bg-opacity-5 ${
-          active ? "bg-opacity-5 text-green-400" : "bg-opacity-0 text-dark-200"
+          active ? "bg-opacity-5 text-green-400" : "bg-opacity-0 text-dark-100"
         }`}
       >
         <div className="p-3 pl-5">{icon}</div>

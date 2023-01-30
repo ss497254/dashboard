@@ -8,7 +8,7 @@ export const DashboardNavBar: React.FC<props> = () => {
   const { toggleOpen: toggleSidebar } = useSidebarDrawerStore();
 
   return (
-    <div className="flex items-center w-full px-4 font-semibold text-white bg-dark-800 h-14">
+    <div className="flex items-center w-full px-4 font-semibold bg-dark-800 h-14">
       <IconButton
         icon="Hamburger"
         onClick={toggleSidebar}
