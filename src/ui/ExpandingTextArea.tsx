@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 
 export interface TextAreaProps
   extends React.ComponentPropsWithoutRef<"textarea"> {
@@ -9,24 +9,18 @@ export interface TextAreaProps
   transparent?: boolean;
 }
 
-export const ExpandingTextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const ExpandingTextArea = forwardRef<HTMLSpanElement, TextAreaProps>(
   ({ className, textarea, error, transparent, ...props }, ref) => {
-    const [rows, setRows] = useState(1);
     const bg = transparent ? `bg-transparent` : `bg-dark-700`;
     const ring = error ? `ring-1 ring-secondary` : "";
-    const cn = `remove-scroll w-full py-2 px-3 rounded text-dark-100 placeholder-dark-300 focus:outline-none ${bg} ${ring} ${className} `;
+    const cn = `remove-scroll whitespace-pre-line overflow-y-scroll max-h-[200px] w-full py-2 px-3 rounded text-dark-100 placeholder-dark-300 focus:outline-none ${bg} ${ring} ${className} `;
 
     return (
-      <textarea
+      <span
         ref={ref as any}
         className={cn}
         style={{ resize: "none" }}
-        rows={rows}
-        onChange={({ target: { value } }) => {
-          setRows(
-            Math.min(10, (value.match(new RegExp("\n", "g"))?.length || 0) + 1)
-          );
-        }}
+        contentEditable
         data-testid="textarea"
         {...props}
       />

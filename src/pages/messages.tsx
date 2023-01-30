@@ -1,24 +1,25 @@
-import React from "react";
-import { ExpandingTextArea } from "src/ui/ExpandingTextArea";
-import { IconButton } from "src/ui/IconButton";
+import React, { useState } from "react";
 import { MessageBox } from "src/ui/MessageBox";
+import { MessageInputBar } from "src/ui/MessageInputBar";
+
+const messages = [] as { id: string; text: string }[];
 
 const Messages = () => {
+  const [, update] = useState<number>();
+
   return (
     <div className="relative flex-c" style={{ height: "calc(100vh - 56px)" }}>
-      <div className="flex-1 bg-dark-900">
-        <MessageBox
-          text="p-3 ml-3 rounded-full hover:rounded h-fit bg-dark-600 text-dark-100"
-          direction="left"
-        />
+      <div className="flex-1 overflow-y-scroll bg-dark-900">
+        {messages.map((message) => (
+          <MessageBox key={message.id} text={message.text} />
+        ))}
       </div>
-      <div className="fixed bottom-0 left-0 lg:left-[280px] right-0 flex p-3 px-4 bg-dark-800">
-        <ExpandingTextArea />
-        <IconButton
-          icon="Rocket"
-          className="p-3 ml-3 rounded-full hover:rounded h-fit bg-dark-600 text-dark-100"
-        />
-      </div>
+      <MessageInputBar
+        onSubmit={(text) => {
+          messages.push({ text, id: Math.random().toString() });
+          update(Math.random());
+        }}
+      />
     </div>
   );
 };
