@@ -3,8 +3,67 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("/fonts/Inter-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/fonts/Inter-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/Inter-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Inter-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Inter-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/Inter-ExtraBold.woff2") format("woff2");
 }
 
 h1,
@@ -19,17 +78,13 @@ p.bold {
   --color-dark-100: #dee3ea;
   --color-dark-200: #b2bdcd;
   --color-dark-300: #5d7290;
+  --color-dark-500: #2c394b;
   --color-dark-600: #323d4d;
   --color-dark-700: #242c37;
   --color-dark-800: #151a21;
   --color-dark-900: #0b0e11;
   --color-accent: #fd4d4d;
   --color-brand: #5575e7;
-  --color-dark-100-translucent: rgba(222, 227, 234, 0.15);
-
-  --color-accent-hover: #fd6868;
-  --color-accent-disabled: #f5bfbf;
-  --screen-height-reduction: 0px;
 }
 
 h1 {
@@ -57,17 +112,43 @@ p.small {
   font-size: 0.85rem;
 }
 
+@layer utilities {
+  .flex-c {
+    @apply flex flex-col;
+  }
+
+  .c {
+    @apply flex justify-center items-center;
+  }
+
+  .tick::before {
+    content: "";
+    border-left: 12px solid transparent;
+
+    border-top: 16px solid;
+    @apply h-3 w-3 font-bold -left-2 top-0 border-t-dark-700 absolute;
+  }
+}
+
 /* for firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-dark-700) rgba(0, 0, 0, 0);
 }
 
+.remove-scroll::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
 /* for non-firefox */
 ::-webkit-scrollbar {
   overflow: overlay;
-  width: 8px;
-  /* shouldnt hardcode width, pls find way to make it dynamic, thin wasn't working for me...*/
+  @apply w-0.5 lg:w-1.5;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  @apply w-0.5;
 }
 
 ::-webkit-scrollbar-track {
@@ -75,7 +156,7 @@ p.small {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-dark-700);
+  background-color: var(--color-dark-600);
   border-radius: 5px;
 }
 
@@ -87,25 +168,7 @@ html {
   background: var(--color-dark-700);
 }
 
-#nprogress {
-  position: relative;
-  z-index: 9999999;
-}
-
-#nprogress .bar {
-  background: var(--color-accent-hover) !important;
-}
-
-#nprogress .peg {
-  box-shadow: 0 0 10px var(--color-accent-hover),
-    0 0 5px var(--color-accent-hover) !important;
-}
-
-#nprogress .spinner-icon {
-  border-top-color: var(--color-accent-hover) !important;
-  border-left-color: var(--color-accent-hover) !important;
-}
-
 button:focus {
+  @apply ring-2;
   outline: none;
 }

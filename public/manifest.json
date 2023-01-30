@@ -1,6 +1,6 @@
 {
-  "name": "Dashboard",
-  "short_name": "Web dashboard for our god",
+  "name": "Web dashboard for our god",
+  "short_name": "Dashboard",
   "start_url": "/",
   "icons": [
     {
@@ -15,8 +15,13 @@
     }
   ],
   "display": "standalone",
-  "background_color": "#0b0e11",
-  "theme_color": "#fd4d4d",
+  "background_color": "#151a21",
+  "theme_color": "#151a21",
   "orientation": "portrait-primary",
-  "splash_pages": null
+  "splash_pages": null,
+  "scope": "/",
+  "launch_handler": {
+    "route_to": "existing-client",
+    "navigate_existing_client": "never"
+  }
 }

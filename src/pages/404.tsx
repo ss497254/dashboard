@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Error404() {
+const Error404 = () => {
   return <div>Error404</div>;
-}
+};
 
 export default Error404;

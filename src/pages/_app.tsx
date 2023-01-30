@@ -1,25 +1,23 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
-import React from 'react';
-import { PageComponent } from 'types/PageComponent';
-import { isServer } from '../lib/isServer';
-import '../styles/globals.css';
-import '../styles/loading-animation.css';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import Router from "next/router";
+import { NextPageContext } from "next/types";
+import NProgress from "nprogress";
+import React from "react";
+import { Layout } from "src/modules/layout";
+import "src/styles/globals.css";
+import "src/styles/loading-animation.css";
+import "src/styles/nprogress.css";
+import { PageComponent } from "src/types/PageComponent";
 
-Router.events.on('routeChangeStart', () => {
-  NProgress.start();
-});
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
-function App({ Component, pageProps }: AppProps) {
-  if (isServer && (Component as PageComponent<unknown>).hidden) {
-    return null;
-  }
-
+function App({
+  Component,
+  pageProps,
+}: AppProps & { Component: PageComponent<NextPageContext> }) {
   return (
     <>
       <Head>
@@ -33,7 +31,7 @@ function App({ Component, pageProps }: AppProps) {
           rel="apple-touch-startup-image"
           href="android-chrome-512x512.png"
         />
-
+        <meta name="theme-color" content="#151a21" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -52,7 +50,13 @@ function App({ Component, pageProps }: AppProps) {
           href="/favicon-16x16.png"
         ></link>
       </Head>
-      <Component {...pageProps} />
+      {Component.auth ? (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      ) : (
+        <Component {...pageProps} />
+      )}
     </>
   );
 }
