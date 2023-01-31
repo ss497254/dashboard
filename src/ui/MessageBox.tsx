@@ -3,24 +3,25 @@ import React, { memo } from "react";
 interface props {
   direction?: "left" | "right" | "auto";
   text: string;
+  id: number;
 }
 
-const directionToClassName = {
+const dirClassNames = {
   left: "tick-l mr-auto",
   right: "tick-r ml-auto",
 };
 
 export const MessageBox: React.FC<props> = memo(
-  ({ text, direction = "auto" }) => {
+  ({ text, id, direction = "auto" }) => {
     if (direction === "auto") {
-      direction = Math.random() > 0.5 ? "left" : "right";
+      direction = id % 10 > 4 ? "left" : "right";
     }
 
     return (
       <div
-        className={`max-w-[80%] whitespace-pre-wrap mx-3 my-4 rounded-md p-3 text-sm outline-none bg-dark-700 relative ${directionToClassName[direction]}`}
+        className={`max-w-[80%] whitespace-pre-wrap mx-3 my-1.5 relative rounded-md outline-none bg-dark-700 ${dirClassNames[direction]}`}
       >
-        {text}
+        <p className="p-3 overflow-x-hidden text-sm text-ellipsis">{text}</p>
       </div>
     );
   }

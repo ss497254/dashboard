@@ -69,8 +69,7 @@
 h1,
 h2,
 h3,
-h4,
-p.bold {
+h4 {
   font-weight: 700;
 }
 
@@ -103,15 +102,6 @@ h4 {
   font-size: 1.4rem;
 }
 
-p {
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-p.small {
-  font-size: 0.85rem;
-}
-
 @layer utilities {
   .flex-c {
     @apply flex flex-col;
@@ -121,20 +111,28 @@ p.small {
     @apply flex justify-center items-center;
   }
 
-  .tick-l::before {
+  .tick-l::after {
     content: "";
     border-left: 12px solid transparent;
 
     border-top: 16px solid;
-    @apply h-3 w-3 font-bold -left-2 top-0 border-t-dark-700 absolute;
+    @apply h-3 w-3 -left-2 top-0 border-t-dark-700 absolute;
   }
 
-  .tick-r::before {
+  .tick-r::after {
     content: "";
     border-right: 12px solid transparent;
 
     border-top: 16px solid;
-    @apply h-3 w-3 font-bold -right-2 top-0 border-t-dark-700 absolute;
+    @apply h-3 w-3 -right-2 top-0 border-t-dark-700 absolute;
+  }
+
+  .tick-l + .tick-r {
+    margin-top: 12px;
+  }
+
+  .tick-r + .tick-l {
+    margin-top: 12px;
   }
 }
 
