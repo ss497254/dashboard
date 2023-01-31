@@ -115,16 +115,16 @@ h4 {
     content: "";
     border-left: 12px solid transparent;
 
-    border-top: 16px solid;
-    @apply h-3 w-3 -left-2 top-0 border-t-dark-700 absolute;
+    border-top: 16px solid var(--color-dark-700);
+    @apply h-3 w-3 -left-2 top-0 absolute;
   }
 
   .tick-r::after {
     content: "";
     border-right: 12px solid transparent;
 
-    border-top: 16px solid;
-    @apply h-3 w-3 -right-2 top-0 border-t-dark-700 absolute;
+    border-top: 16px solid var(--color-dark-700);
+    @apply h-3 w-3 -right-2 top-0 absolute;
   }
 
   .tick-l + .tick-r {
