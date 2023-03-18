@@ -150,11 +150,11 @@ h4 {
 /* for non-firefox */
 ::-webkit-scrollbar {
   overflow: overlay;
-  @apply w-0.5 lg:w-1.5;
+  @apply w-1 lg:w-2;
 }
 
 .scroll-thin::-webkit-scrollbar {
-  @apply w-0.5;
+  @apply w-1;
 }
 
 ::-webkit-scrollbar-track {

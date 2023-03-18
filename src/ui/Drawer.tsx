@@ -49,7 +49,7 @@ export const Drawer: React.FC<props> = ({
   return (
     <>
       <div
-        className={`flex-c animate border-dark-700 duration-400 top-0 left-0 absolute z-20 h-screen bg-dark-800 overflow-y-scroll w-[280px] scroll-thin ${cn} ${className}`}
+        className={`flex-c animate border-dark-700 duration-400 top-0 left-0 absolute z-20 h-screen bg-dark-800 w-[280px] scroll-thin ${cn} ${className}`}
         tabIndex={-1}
       >
         {children}
