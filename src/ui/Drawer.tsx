@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import { useOnClickInside } from "src/hooks/useOnClickInside";
+import React from "react";
 
 interface props {
   open: boolean;
@@ -20,25 +19,7 @@ export const Drawer: React.FC<props> = ({
   permanent,
   className = "",
 }) => {
-  const ref = useRef<any>();
-  useOnClickInside(ref, toggleOpen, permanent);
-
   let cn = "";
-
-  useEffect(() => {
-    if (!backdrop || !open || permanent) return;
-
-    const listener = (event: MouseEvent | TouchEvent) => {
-      if (ref.current.contains(event.target)) {
-        toggleOpen();
-      }
-    };
-
-    ref.current?.addEventListener("click", listener);
-    return () => {
-      ref.current?.removeEventListener("click", listener);
-    };
-  });
 
   if (!(permanent || open))
     cn = dir === "left" ? "-translate-x-full " : "translate-x-full ";
@@ -55,7 +36,7 @@ export const Drawer: React.FC<props> = ({
         {children}
       </div>
       <div
-        ref={ref}
+        onClick={toggleOpen}
         className={
           backdrop && open
             ? "absolute inset-y-0 z-10 w-screen backdrop-blur-sm"

@@ -72,7 +72,7 @@ export const DashboardSidebar: React.FC<props> = ({}) => {
       className="pb-10 overflow-y-scroll md:overflow-y-hidden hover:overflow-y-scroll"
       permanent={width > 1200}
     >
-      <Logo className="mx-auto mt-10 mb-6" />
+      <Logo className="mx-auto my-10" />
       {navGroups.map((navGroup, idx) => (
         <NavItemGroup key={idx} {...navGroup} />
       ))}

@@ -12,7 +12,7 @@ export const NavItemGroup: React.FC<props> = ({ heading, items }) => {
 
   return (
     <div className="mx-4 mb-4 text-white">
-      <div className="mx-4 mb-2 text-xs font-semibold uppercase text-dark-100">
+      <div className="mx-4 mb-2 text-xs font-semibold uppercase text-dark-200">
         {heading}
       </div>
       {items.map((item, idx) => (

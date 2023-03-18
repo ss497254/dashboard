@@ -7,11 +7,9 @@ export const useOnClickInside = (
 ) => {
   useEffect(() => {
     if (!enable || !ref.current) return;
-    console.log(ref);
 
     const listener = (event: MouseEvent | TouchEvent) => {
       handler(event);
-      console.log("called");
       if (ref.current.contains(event.target)) {
       }
     };

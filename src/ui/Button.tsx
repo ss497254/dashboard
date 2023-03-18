@@ -3,8 +3,8 @@ import { Spinner } from "./Spinner";
 
 interface props {
   title: string;
-  loading: boolean;
-  disabled: boolean;
+  loading?: boolean;
+  disabled?: boolean;
 }
 
 const mode = {

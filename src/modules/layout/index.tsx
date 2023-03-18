@@ -11,7 +11,7 @@ export const Layout: React.FC<props> = ({ children }) => {
   if (useClientOnly()) return null;
 
   return (
-    <div className="lg:pl-[280px] flex-c min-h-screen text-dark-100 bg-dark-900 w-screen">
+    <div className="lg:pl-[280px] selection:text-sky-100 selection:bg-sky-700 flex-c min-h-screen text-dark-100 bg-dark-900 w-screen">
       <DashboardNavBar />
       {children}
       <DashboardSidebar />
