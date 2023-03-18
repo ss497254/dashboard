@@ -1,9 +1,11 @@
 import React from "react";
 
-const settings = () => {
-  return <div className="">settings </div>;
+const Settings = () => {
+  return (
+    <div className="flex-grow text-2xl font-bold bg-dark-900 c">Settings</div>
+  );
 };
 
-settings.auth = true;
+Settings.auth = true;
 
-export default settings;
+export default Settings;

@@ -166,10 +166,6 @@ h4 {
   border-radius: 5px;
 }
 
-html {
-  position: fixed;
-}
-
 ::-webkit-resizer {
   background: var(--color-dark-700);
 }

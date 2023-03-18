@@ -31,14 +31,15 @@ const navGroups = [
   {
     heading: "Messages",
     items: [
-      { href: "/channels", icon: <Compass />, title: "Channels" },
       { href: "/messages", icon: <Messages />, title: "Messages" },
+      { href: "/channels", icon: <Compass />, title: "Channels" },
     ],
   },
   {
     heading: "Manage",
     items: [
       { href: "/profile", icon: <User />, title: "Profile" },
+      { href: "/server", icon: <Warning />, title: "Server" },
       { href: "/settings", icon: <Settings />, title: "Settings" },
     ],
   },
@@ -68,7 +69,7 @@ export const DashboardSidebar: React.FC<props> = ({}) => {
   return (
     <Drawer
       {...value}
-      className="overflow-y-scroll md:overflow-y-hidden hover:overflow-y-scroll"
+      className="pb-10 overflow-y-scroll md:overflow-y-hidden hover:overflow-y-scroll"
       permanent={width > 1200}
     >
       <Logo className="mx-auto mt-10 mb-6" />
