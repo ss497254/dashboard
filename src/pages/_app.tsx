@@ -4,7 +4,7 @@ import Router from "next/router";
 import { NextPageContext } from "next/types";
 import NProgress from "nprogress";
 import React from "react";
-import { Layout } from "src/modules/layout";
+import { Layout } from "src/components/layout";
 import "src/styles/globals.css";
 import "src/styles/loading-animation.css";
 import "src/styles/nprogress.css";
