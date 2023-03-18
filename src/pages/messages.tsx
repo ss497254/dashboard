@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForceRender } from "src/hooks/useForceRender";
 import { MessageBox } from "src/ui/MessageBox";
 import { MessageInputBar } from "src/ui/MessageInputBar";
 
 const messages = [] as { id: number; text: string }[];
 
 const Messages = () => {
-  const [, update] = useState<object>();
+  const render = useForceRender();
 
   return (
     <div className="relative flex-c" style={{ height: "calc(100vh - 56px)" }}>
@@ -17,7 +18,7 @@ const Messages = () => {
       <MessageInputBar
         onSubmit={(text) => {
           messages.push({ text, id: new Date().getTime() });
-          update({});
+          render();
         }}
       />
     </div>
