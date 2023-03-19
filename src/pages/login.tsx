@@ -22,7 +22,7 @@ export default function Login() {
   return (
     <div className="h-screen px-6 flex-c bg-dark-900 c">
       <form className="p-8 rounded-lg shadow-lg bg-dark-700">
-        <h1 className="mb-10 text-center text-[6rem]">🐨</h1>
+        <img src="/logo.png" className="w-32 h-32 mx-auto mb-12" />
         <input
           name="pin_code"
           type="password"
@@ -39,7 +39,6 @@ export default function Login() {
         {error && <div className="mb-4 ml-4 -mt-5 text-red-400">{error}</div>}
         <Button
           btn="success"
-          title="Enter"
           type="submit"
           disabled={!!error}
           loading={loading}
@@ -47,8 +46,11 @@ export default function Login() {
             e.preventDefault();
             onSubmit(value);
           }}
-          className="!p-3 rounded-lg w-full font-semibold text-xl"
-        />
+          size="xlarge"
+          className="w-full font-semibold rounded-lg"
+        >
+          Submit
+        </Button>
       </form>
     </div>
   );
