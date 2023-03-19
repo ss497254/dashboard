@@ -20,7 +20,7 @@ export const MessageInputBar: React.FC<props> = ({ onSubmit }) => {
 
           if (ref.current) ref.current.innerText = "";
         }}
-        className="p-3 ml-3 rounded-full hover:rounded h-fit bg-dark-600 text-dark-100"
+        className="p-3 ml-3 rounded-full hover:rounded h-fit bg-dark-600"
       />
     </div>
   );

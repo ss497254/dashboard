@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGet, usePost } from "src/hooks/ApiHooks";
 import { useForceRender } from "src/hooks/useForceRender";
+import { useChatScroll } from "src/hooks/useScroll";
 import { getServerSideProps } from "src/lib/getServerSideProps";
 import { MessageType } from "src/types/MessageType";
 import { MessageBox } from "src/ui/MessageBox";
@@ -9,16 +10,24 @@ import { Spinner } from "src/ui/Spinner";
 
 const Messages = () => {
   const render = useForceRender();
-  const { data, loading } = useGet<MessageType[]>("/api/messages", {});
+  const { ref, scroll } = useChatScroll();
+
+  useEffect(scroll);
+
+  const { data, loading } = useGet<MessageType[]>("/api/messages", {
+    initialValue: [],
+  });
   const { run: submit } = usePost("/api/messages");
 
   return (
-    <div className="bg-red-100 flex-c h-screen-reduction">
-      <div className="flex-grow overflow-y-scroll bg-dark-900">
+    <div className="flex-c h-screen-reduction">
+      <div
+        ref={ref}
+        className="flex-col-reverse flex-grow pt-4 overflow-y-scroll bg-dark-900"
+      >
         {loading ? (
-          <Spinner className="mx-auto" size={26} />
+          <Spinner className="mx-auto mt-[35vh]" size={32} />
         ) : (
-          data &&
           data.map((message) => <MessageBox key={message.id} {...message} />)
         )}
       </div>

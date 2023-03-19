@@ -1,6 +1,7 @@
 /* for firefox */
 * {
   scrollbar-width: thin;
+  scroll-behavior: smooth;
   scrollbar-color: var(--color-dark-700) rgba(0, 0, 0, 0);
 }
 

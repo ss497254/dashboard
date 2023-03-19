@@ -11,7 +11,7 @@ export const NavItemGroup: React.FC<props> = ({ heading, items }) => {
   const router = useRouter();
 
   return (
-    <div className="mx-4 mb-4 text-white">
+    <div className="mx-4 mb-4">
       <div className="mx-4 mb-2 text-xs font-semibold uppercase text-dark-200">
         {heading}
       </div>
