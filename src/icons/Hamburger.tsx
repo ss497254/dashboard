@@ -20,8 +20,8 @@ export default function Hamburger(
         y2="2"
         id="Path"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       ></line>
       <line
         x1="0"
@@ -30,8 +30,8 @@ export default function Hamburger(
         y2="12"
         id="Path"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       ></line>
       <line
         x1="0"
@@ -40,8 +40,8 @@ export default function Hamburger(
         y2="22"
         id="Path"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       ></line>
     </svg>
   );

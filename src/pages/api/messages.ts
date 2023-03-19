@@ -10,8 +10,9 @@ export default middleware(async function handler(
     if (req.method === "GET")
       return res.json(
         (await getMessages()).docs.map((doc) => ({
-          content: doc.data(),
-          time: doc.updateTime.nanoseconds,
+          id: doc.id,
+          time: doc.createTime.nanoseconds,
+          ...doc.data(),
         }))
       );
 
