@@ -17,13 +17,13 @@ const Messages = () => {
   const { data, loading } = useGet<MessageType[]>("/api/messages", {
     initialValue: [],
   });
-  const { run: submit } = usePost("/api/messages");
+  const { run: submit, loading: submitting } = usePost("/api/messages");
 
   return (
     <div className="flex-c h-screen-reduction">
       <div
         ref={ref}
-        className="flex-col-reverse flex-grow pt-4 overflow-y-scroll bg-dark-900"
+        className="flex-col-reverse flex-grow py-4 overflow-y-scroll bg-dark-900"
       >
         {loading ? (
           <Spinner className="mx-auto mt-[35vh]" size={32} />
@@ -32,6 +32,7 @@ const Messages = () => {
         )}
       </div>
       <MessageInputBar
+        submitting={submitting}
         onSubmit={async (content) => {
           const message = await submit({
             content,

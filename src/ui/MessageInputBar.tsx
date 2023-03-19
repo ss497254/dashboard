@@ -7,15 +7,17 @@ interface props {
   onSubmit: (message: string) => void;
 }
 
-export const MessageInputBar: React.FC<props> = ({ onSubmit }) => {
+export const MessageInputBar: React.FC<props> = ({ onSubmit, submitting }) => {
   const ref = useRef<HTMLSpanElement>(null);
 
   return (
     <div className="flex items-end p-3 px-4 bg-dark-800">
       <ExpandingTextArea name="message" ref={ref} />
       <IconButton
-        icon="Rocket"
+        icon={submitting ? "Loading" : "Rocket"}
         onClick={() => {
+          if (submitting) return;
+
           onSubmit(ref.current?.innerText || "(empty)");
 
           if (ref.current) ref.current.innerText = "";
