@@ -1,22 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { firestoreInstance } from "src/lib/firebase";
 import { middleware } from "src/lib/middleware";
+import { addMessage, getMessages } from "src/utils/firebaseMessageHandler";
 
 export default middleware(async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // if (req.method !== "POST")
-  //   return res.status(404).json({ message: "not found" });
-
   try {
-    const doc = await firestoreInstance()
-      .collection("messages")
-      .add({ message: "hi how are you" });
-    return res.json({ message: "done", success: true, doc });
+    if (req.method === "GET")
+      return res.json(
+        (await getMessages()).docs.map((doc) => ({
+          content: doc.data(),
+          time: doc.updateTime.nanoseconds,
+        }))
+      );
+
+    if (req.method === "POST") {
+      return res.json(await addMessage(req.body));
+    }
   } catch (e) {
     console.error(e);
   }
 
-  return res.status(400).json({ message: "some error occured" });
+  return res.status(404).json({ message: "Not found" });
 });

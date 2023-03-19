@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== "POST")
-    return res.status(404).json({ message: "not found" });
+    return res.status(404).json({ message: "Not found" });
 
   try {
     const { pin_code } = JSON.parse(req.body);

@@ -1,10 +1,8 @@
 import { GetServerSidePropsContext } from "next/types";
-import { COOKIE_NAME, COOKIE_TOKEN } from "src/data/constants";
+import { authenticateRequest } from "src/utils/authenticateRequest";
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const cookie = ctx.req.cookies[COOKIE_NAME];
-
-  if (cookie === COOKIE_TOKEN)
+  if (authenticateRequest(ctx.req))
     return {
       props: {},
     };
