@@ -12,7 +12,7 @@ export default middleware(async function handler(
         (await getMessages()).docs
           .map((doc) => ({
             id: doc.id,
-            time: doc.createTime.seconds,
+            time: doc.createTime.toMillis(),
             ...doc.data(),
           }))
           .sort((a, b) => {
@@ -24,7 +24,7 @@ export default middleware(async function handler(
       const doc = await (await addMessage(req.body)).get();
       return res.json({
         id: doc.id,
-        time: doc.createTime?.seconds,
+        time: doc.createTime?.toMillis(),
         ...doc.data(),
       });
     }
