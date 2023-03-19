@@ -8,6 +8,7 @@ import { Layout } from "src/components/layout";
 import "src/styles/globals.css";
 import "src/styles/loading-animation.css";
 import "src/styles/nprogress.css";
+import "src/styles/scrollbar.css";
 import { PageComponent } from "src/types/PageComponent";
 
 Router.events.on("routeChangeStart", () => NProgress.start());

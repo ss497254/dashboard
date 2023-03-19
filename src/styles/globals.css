@@ -136,38 +136,12 @@ h4 {
   }
 }
 
-/* for firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-dark-700) rgba(0, 0, 0, 0);
-}
-
-.remove-scroll::-webkit-scrollbar {
-  height: 0;
-  width: 0;
-}
-
-/* for non-firefox */
-::-webkit-scrollbar {
-  overflow: overlay;
-  @apply w-1 lg:w-2;
-}
-
-.scroll-thin::-webkit-scrollbar {
-  @apply w-1;
-}
-
-::-webkit-scrollbar-track {
-  display: initial;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-dark-600);
-  border-radius: 5px;
-}
-
 ::-webkit-resizer {
   background: var(--color-dark-700);
+}
+
+.h-screen-reduction {
+  height: calc(100vh - 56px);
 }
 
 button:focus {

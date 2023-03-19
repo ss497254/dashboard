@@ -13,7 +13,6 @@ import {
 } from "src/icons";
 import { Drawer } from "src/ui/Drawer";
 import { Logo } from "src/ui/Logo";
-import { NavItem } from "src/ui/Sidebar/NavItem";
 import { NavItemGroup } from "src/ui/Sidebar/NavItemGroup";
 
 const navGroups = [
@@ -69,7 +68,7 @@ export const DashboardSidebar: React.FC<props> = ({}) => {
   return (
     <Drawer
       {...value}
-      className="pb-10 overflow-y-scroll md:overflow-y-hidden hover:overflow-y-scroll"
+      className="pb-10 overflow-y-scroll hide-scroll"
       permanent={width > 1200}
     >
       <Logo className="mx-auto my-10" />
