@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { PIN_CODE } from "src/data/constants";
 import { generateCookie } from "src/utils/cookies";
 
 export default async function handler(
@@ -9,9 +10,9 @@ export default async function handler(
     return res.status(404).json({ message: "Not found" });
 
   try {
-    const { pin_code } = JSON.parse(req.body);
+    const { pin_code } = req.body;
 
-    if (typeof pin_code === "string" && pin_code === process.env.PIN_CODE) {
+    if (pin_code === PIN_CODE) {
       res.setHeader("set-cookie", generateCookie());
       return res.json({ message: "nice", success: true });
     }

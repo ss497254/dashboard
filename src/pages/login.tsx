@@ -1,22 +1,20 @@
 import Router from "next/router";
 import React, { useCallback, useState } from "react";
+import { usePost } from "src/hooks/ApiHooks";
 import { Button } from "src/ui/Button";
-
-import { verfiyPinCode } from "src/utils/verifyPinCode";
 
 export default function Login() {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const onSubmit = useCallback(async (value: string) => {
-    if (!value) return;
+  const { run, loading } = usePost("/api/login");
 
-    setLoading(true);
-    const err = await verfiyPinCode(value, () => Router.replace("/"));
+  const onSubmit = useCallback(async (pin_code: string) => {
+    const res = await run({ pin_code });
 
-    if (err) setError(err);
-    setLoading(false);
+    if (res && res.success) return Router.replace("/");
+
+    setError("INVALID CODE");
   }, []);
 
   return (

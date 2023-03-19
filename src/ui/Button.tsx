@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  let classes = ["c text-white"];
+  let classes = ["relative c text-white"];
 
   classes.push(ButtonType[btn]);
 
@@ -60,14 +60,13 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={classes.join(" ")} {...props}>
-      {loading ? (
-        <Spinner size={22} />
-      ) : (
-        <>
-          {icon && Icons[icon]({ size: iconSize, className: "mr-3" })}
-          {children}
-        </>
+      {loading && (
+        <div className="absolute w-full bg-inherit">
+          <Spinner size={22} className="mx-auto" />
+        </div>
       )}
+      {icon && Icons[icon]({ size: iconSize, className: "mr-3" })}
+      {children}
     </button>
   );
 };
