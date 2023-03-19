@@ -1,20 +1,17 @@
 import React from "react";
 
-const sizes = {
-  "2": "h-2 w-2",
-  "4": "h-4 w-4",
-  "0": "",
-};
-
-export const Spinner: React.FC<{ size?: keyof typeof sizes }> = ({
-  size = "4",
+export const Spinner: React.FC<{ size?: number; className?: string }> = ({
+  size = 16,
+  className,
 }) => {
   return (
     <svg
-      className={`animate-spin text-button ${sizes[size]}`}
+      className={`animate-spin text-button ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
+      height={size}
+      width={size}
     >
       <path
         fill="currentColor"

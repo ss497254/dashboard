@@ -148,3 +148,25 @@ button:focus {
   @apply ring-2;
   outline-color: transparent;
 }
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  50% {
+    margin-left: 0rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
+
+.shake {
+  animation: shake 0.2s ease-in-out 0s 1;
+}

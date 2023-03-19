@@ -5,8 +5,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.setHeader("set-cookie", generateCookie());
-
   if (req.method !== "POST")
     return res.status(404).json({ message: "not found" });
 

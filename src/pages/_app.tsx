@@ -11,9 +11,9 @@ import "src/styles/nprogress.css";
 import "src/styles/scrollbar.css";
 import { PageComponent } from "src/types/PageComponent";
 
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+Router.events.on("routeChangeStart", NProgress.start);
+Router.events.on("routeChangeComplete", NProgress.done);
+Router.events.on("routeChangeError", NProgress.done);
 
 function App({
   Component,
