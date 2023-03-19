@@ -3,6 +3,7 @@ import { ExpandingTextArea } from "./ExpandingTextArea";
 import { IconButton } from "./IconButton";
 
 interface props {
+  submitting?: boolean;
   onSubmit: (message: string) => void;
 }
 

@@ -146,7 +146,7 @@ h4 {
 
 button:focus {
   @apply ring-2;
-  outline-color: transparent;
+  outline: none;
 }
 
 @keyframes shake {

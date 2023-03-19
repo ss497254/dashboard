@@ -1,6 +1,6 @@
 export interface MessageType {
   id: string;
   content: string;
-  direction: "left" | "right";
+  dir: "left" | "right";
   time: string;
 }

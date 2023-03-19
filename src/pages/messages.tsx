@@ -7,14 +7,10 @@ import { MessageBox } from "src/ui/MessageBox";
 import { MessageInputBar } from "src/ui/MessageInputBar";
 import { Spinner } from "src/ui/Spinner";
 
-const messages = [] as { id: number; text: string }[];
-
 const Messages = () => {
-  // const render = useForceRender();
-  const { data, loading } = useGet<MessageType[]>("/api/messages");
-  const {} = usePost("/api/messages");
-
-  console.log(data);
+  const render = useForceRender();
+  const { data, loading } = useGet<MessageType[]>("/api/messages", {});
+  const { run: submit } = usePost("/api/messages");
 
   return (
     <div className="bg-red-100 flex-c h-screen-reduction">
@@ -27,8 +23,16 @@ const Messages = () => {
         )}
       </div>
       <MessageInputBar
-        onSubmit={(text) => {
-          messages.push({ text, id: new Date().getTime() });
+        onSubmit={async (content) => {
+          const message = await submit({
+            content,
+            dir: Math.random() > 0.5 ? "right" : "left",
+          });
+
+          if (message.id) {
+            data.push(message);
+            render();
+          }
         }}
       />
     </div>

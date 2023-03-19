@@ -8,7 +8,8 @@ export default middleware(async function handler(
 ) {
   try {
     if (req.method === "DELETE") {
-      return res.json(await deleteAllMessages());
+      await deleteAllMessages();
+      return res.json({ message: "nice", success: true });
     }
   } catch (e) {
     console.error(e);

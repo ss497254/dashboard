@@ -9,15 +9,24 @@ export default middleware(async function handler(
   try {
     if (req.method === "GET")
       return res.json(
-        (await getMessages()).docs.map((doc) => ({
-          id: doc.id,
-          time: doc.createTime.nanoseconds,
-          ...doc.data(),
-        }))
+        (await getMessages()).docs
+          .map((doc) => ({
+            id: doc.id,
+            time: doc.createTime.seconds,
+            ...doc.data(),
+          }))
+          .sort((a, b) => {
+            return a.time - b.time;
+          })
       );
 
     if (req.method === "POST") {
-      return res.json(await addMessage(req.body));
+      const doc = await (await addMessage(req.body)).get();
+      return res.json({
+        id: doc.id,
+        time: doc.createTime?.seconds,
+        ...doc.data(),
+      });
     }
   } catch (e) {
     console.error(e);

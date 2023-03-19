@@ -2,15 +2,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface QueryOptions {
   runOnMount?: boolean;
+  initialValue?: any;
 }
 
-export const useGet = <T>(
-  path: string,
-  options: QueryOptions = { runOnMount: true }
-) => {
+const DefaultOptions: Partial<QueryOptions> = { runOnMount: true };
+
+export const useGet = <T>(path: string, options?: QueryOptions) => {
+  options = { ...DefaultOptions, ...options };
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(true);
-  const response = useRef<T>();
+  const response = useRef<T>(options.initialValue);
 
   const run = useCallback(async () => {
     setLoading(true);
@@ -68,7 +70,10 @@ export const usePost = (path: string) => {
           body: JSON.stringify(data),
         });
 
-        if (res.headers.get("content-type") === "application/json") {
+        if (
+          res.status === 200 &&
+          res.headers.get("Content-Type")?.includes("application/json")
+        ) {
           setLoading(false);
           return res.json();
         }
