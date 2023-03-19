@@ -1,4 +1,5 @@
 import React from "react";
+import { getServerSideProps } from "src/lib/getServerSideProps";
 
 const Notifications = () => {
   return (
@@ -9,5 +10,7 @@ const Notifications = () => {
 };
 
 Notifications.auth = true;
+
+export { getServerSideProps };
 
 export default Notifications;

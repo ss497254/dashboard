@@ -1,4 +1,5 @@
 import React from "react";
+import { getServerSideProps } from "src/lib/getServerSideProps";
 
 const Profile = () => {
   return (
@@ -7,5 +8,7 @@ const Profile = () => {
 };
 
 Profile.auth = true;
+
+export { getServerSideProps };
 
 export default Profile;

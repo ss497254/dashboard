@@ -1,5 +1,6 @@
 import React from "react";
 import { useForceRender } from "src/hooks/useForceRender";
+import { getServerSideProps } from "src/lib/getServerSideProps";
 import { MessageBox } from "src/ui/MessageBox";
 import { MessageInputBar } from "src/ui/MessageInputBar";
 
@@ -26,5 +27,7 @@ const Messages = () => {
 };
 
 Messages.auth = true;
+
+export { getServerSideProps };
 
 export default Messages;

@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 
-function Login() {
-  return <div>Login</div>;
-}
+const Login = () => {
+  return (
+    <div className="flex-grow text-2xl font-bold bg-dark-900 c">Login</div>
+  );
+};
 
 export default Login;

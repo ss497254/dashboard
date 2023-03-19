@@ -1,4 +1,5 @@
 import React from "react";
+import { getServerSideProps } from "src/lib/getServerSideProps";
 
 const Channels = () => {
   return (
@@ -7,5 +8,7 @@ const Channels = () => {
 };
 
 Channels.auth = true;
+
+export { getServerSideProps };
 
 export default Channels;

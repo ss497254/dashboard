@@ -172,5 +172,5 @@ h4 {
 
 button:focus {
   @apply ring-2;
-  outline: none;
+  outline-color: transparent;
 }
