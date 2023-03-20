@@ -3,8 +3,13 @@ import { MessageType } from "src/types/MessageType";
 
 const MESSAGE_COLLECTION = "messages";
 
-export const getMessages = async () => {
-  return firestoreInstance().collection(MESSAGE_COLLECTION).get();
+export const getMessages = async (offset: number = 0) => {
+  return firestoreInstance()
+    .collection(MESSAGE_COLLECTION)
+    .orderBy("time", "asc")
+    .offset(offset)
+    .limit(15)
+    .get();
 };
 
 export const addMessage = (message: MessageType) => {

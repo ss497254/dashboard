@@ -7,24 +7,27 @@ export default middleware(async function handler(
   res: NextApiResponse
 ) {
   try {
-    if (req.method === "GET")
-      return res.json(
-        (await getMessages()).docs
-          .map((doc) => ({
-            id: doc.id,
-            time: doc.createTime.toMillis(),
-            ...doc.data(),
-          }))
-          .sort((a, b) => {
-            return a.time - b.time;
-          })
-      );
+    if (req.method === "GET") {
+      let { offset } = req.query as any;
 
-    if (req.method === "POST") {
+      if (isNaN(offset) || ((offset = parseInt(offset)) && offset < 0))
+        offset = undefined;
+
+      return res.json(
+        (await getMessages(offset)).docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
+    }
+
+    if (req.method === "POST" && req.body.content && req.body.dir) {
+      req.body.time = new Date().getTime();
+
       const doc = await (await addMessage(req.body)).get();
+
       return res.json({
         id: doc.id,
-        time: doc.createTime?.toMillis(),
         ...doc.data(),
       });
     }
