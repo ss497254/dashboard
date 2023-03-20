@@ -55,11 +55,11 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   if (disabled) {
-    classes.push("cursor-not-allowed pointer-events-none");
+    classes.push("cursor-not-allowed");
   }
 
   return (
-    <button className={classes.join(" ")} {...props}>
+    <button disabled={disabled} className={classes.join(" ")} {...props}>
       {loading && (
         <div className="absolute w-full bg-inherit">
           <Spinner size={22} className="mx-auto" />

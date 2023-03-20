@@ -35,7 +35,12 @@ const Messages = () => {
           <MessageBox key={message.id} {...message} />
         ))}
         {loading && <Loading className="mx-auto my-10" size={24} />}
-        <h4 ref={ref} className="mt-10 text-center rotate-180">
+        {noMore && (
+          <div className="mt-10 -mb-4 text-center rotate-180 text-dark-100">
+            No more messages
+          </div>
+        )}
+        <h4 ref={ref} className="text-center rotate-180 mt-14">
           Messages
         </h4>
       </div>

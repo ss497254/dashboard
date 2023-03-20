@@ -4,8 +4,6 @@ import { MessageType } from "src/types/MessageType";
 const MESSAGE_COLLECTION = "messages";
 
 export const getMessages = async (offset: number = 0) => {
-  console.log(offset);
-
   return firestoreInstance()
     .collection(MESSAGE_COLLECTION)
     .orderBy("time", "desc")
