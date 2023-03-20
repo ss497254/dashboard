@@ -28,7 +28,7 @@ const navGroups = [
     ],
   },
   {
-    heading: "Messages",
+    heading: "Chats",
     items: [
       { href: "/messages", icon: <Messages />, title: "Messages" },
       { href: "/channels", icon: <Compass />, title: "Channels" },

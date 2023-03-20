@@ -4,6 +4,7 @@ import NextHead from "next/head";
 export const Head = () => {
   return (
     <NextHead>
+      <title>Godfather's dashboard</title>
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       <link rel="manifest" href="/manifest.json" />
       <meta

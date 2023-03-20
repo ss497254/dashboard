@@ -1,59 +1,53 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface QueryOptions {
-  runOnMount?: boolean;
   initialValue?: any;
 }
 
-const DefaultOptions: Partial<QueryOptions> = { runOnMount: true };
 const DefaultHeader = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
 
 export const useGet = <T>(path: string, options?: QueryOptions) => {
-  options = { ...DefaultOptions, ...options };
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(true);
-  const response = useRef<T>(options.initialValue);
 
-  const run = useCallback(async () => {
-    setLoading(true);
-    setError(false);
+  const run = useCallback(
+    async (parameter: string = "") => {
+      setLoading(true);
+      setError(false);
 
-    try {
-      const res = await fetch(path, {
-        credentials: "include",
-        method: "GET",
-        headers: DefaultHeader,
-      });
+      try {
+        const res = await fetch(path + parameter, {
+          credentials: "include",
+          method: "GET",
+          headers: DefaultHeader,
+        });
 
-      if (
-        res.ok &&
-        res.headers.get("Content-Type")?.includes("application/json")
-      ) {
-        response.current = await res.json();
-        setLoading(false);
+        if (
+          res.ok &&
+          res.headers.get("Content-Type")?.includes("application/json")
+        ) {
+          let x: T = await res.json();
+          setLoading(false);
 
-        return;
+          return x;
+        }
+
+        console.log(res.text());
+      } catch (e) {
+        console.error(e);
       }
 
-      console.log(res.text());
-    } catch (e) {
-      console.error(e);
-    }
+      setLoading(false);
+      setError(true);
+      return options?.initialValue;
+    },
+    [path]
+  );
 
-    setLoading(false);
-    setError(true);
-    return null;
-  }, [path]);
-
-  useEffect(() => {
-    if (options?.runOnMount) run();
-  }, []);
-
-  return { loading, error, run, data: response.current };
+  return { loading, error, run };
 };
 
 export const usePost = (path: string) => {

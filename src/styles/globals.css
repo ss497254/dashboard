@@ -170,3 +170,7 @@ button:focus {
 .shake {
   animation: shake 0.2s ease-in-out 0s 1;
 }
+
+.rotate-180 {
+  direction: rtl;
+}

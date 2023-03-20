@@ -1,35 +1,43 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useGet, usePost } from "src/hooks/ApiHooks";
+import { useElementVisible } from "src/hooks/useElementVisible";
 import { useForceRender } from "src/hooks/useForceRender";
-import { useChatScroll } from "src/hooks/useScroll";
+import { Loading } from "src/icons";
 import { getServerSideProps } from "src/lib/getServerSideProps";
 import { MessageType } from "src/types/MessageType";
 import { MessageBox } from "src/ui/MessageBox";
 import { MessageInputBar } from "src/ui/MessageInputBar";
-import { Spinner } from "src/ui/Spinner";
+
+let messages: MessageType[] = [];
+let noMore = false;
 
 const Messages = () => {
   const render = useForceRender();
-  const { ref, scroll } = useChatScroll();
-
-  // useEffect(scroll);
-
-  const { data, loading } = useGet<MessageType[]>("/api/messages", {
+  const { loading, run } = useGet<MessageType[]>("/api/messages", {
     initialValue: [],
   });
   const { run: submit, loading: submitting } = usePost("/api/messages");
 
+  const { ref } = useElementVisible(async () => {
+    if (noMore) return;
+
+    let data = await run(`?offset=${messages.length}`);
+
+    if (data.length === 0) noMore = true;
+    messages.push(...data);
+    render();
+  });
+
   return (
     <div className="flex-c h-screen-reduction">
-      <div
-        ref={ref}
-        className="flex-col-reverse flex-grow py-4 overflow-y-scroll rotate-180 bg-dark-900"
-      >
-        {loading ? (
-          <Spinner className="mx-auto mt-[35vh]" size={32} />
-        ) : (
-          data.map((message) => <MessageBox key={message.id} {...message} />)
-        )}
+      <div className="flex-col-reverse flex-grow py-4 overflow-y-scroll rotate-180 bg-dark-900">
+        {messages.map((message) => (
+          <MessageBox key={message.id} {...message} />
+        ))}
+        {loading && <Loading className="mx-auto my-10" size={24} />}
+        <h4 ref={ref} className="mt-10 text-center rotate-180">
+          Messages
+        </h4>
       </div>
       <MessageInputBar
         submitting={submitting}
@@ -40,7 +48,7 @@ const Messages = () => {
           });
 
           if (message.id) {
-            data.unshift(message);
+            messages.unshift(message);
             render();
           }
         }}

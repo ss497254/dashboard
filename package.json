@@ -1,6 +1,6 @@
 {
   "name": "dashboard",
-  "description": "Web dashboard for our god",
+  "description": "Web dashboard for Godfather",
   "version": "1.0.0",
   "private": true,
   "scripts": {

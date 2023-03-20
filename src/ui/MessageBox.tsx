@@ -21,7 +21,7 @@ export const MessageBox: React.FC<props> = memo(
       <div
         {...handlers}
         className={[
-          "max-w-[80%] rotate-180 p-3 whitespace-pre-wrap mx-3 my-1.5 relative rounded-md outline-none",
+          "max-w-[80%] rotate-180 text-left p-3 whitespace-pre-wrap mx-3 my-1.5 relative rounded-md outline-none",
           dirClassNames[dir],
           longpress
             ? "bg-emerald-600 text-emerald-600"
