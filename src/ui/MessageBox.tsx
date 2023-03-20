@@ -9,8 +9,8 @@ interface props {
 }
 
 const dirClassNames = {
-  left: "tick-l mr-auto",
-  right: "tick-r ml-auto",
+  left: "tick-l ml-auto",
+  right: "tick-r mr-auto",
 };
 
 export const MessageBox: React.FC<props> = memo(
@@ -21,7 +21,7 @@ export const MessageBox: React.FC<props> = memo(
       <div
         {...handlers}
         className={[
-          "max-w-[80%] p-3 whitespace-pre-wrap mx-3 my-1.5 relative rounded-md outline-none",
+          "max-w-[80%] rotate-180 p-3 whitespace-pre-wrap mx-3 my-1.5 relative rounded-md outline-none",
           dirClassNames[dir],
           longpress
             ? "bg-emerald-600 text-emerald-600"

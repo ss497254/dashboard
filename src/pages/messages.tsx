@@ -12,7 +12,7 @@ const Messages = () => {
   const render = useForceRender();
   const { ref, scroll } = useChatScroll();
 
-  useEffect(scroll);
+  // useEffect(scroll);
 
   const { data, loading } = useGet<MessageType[]>("/api/messages", {
     initialValue: [],
@@ -23,7 +23,7 @@ const Messages = () => {
     <div className="flex-c h-screen-reduction">
       <div
         ref={ref}
-        className="flex-col-reverse flex-grow py-4 overflow-y-scroll bg-dark-900"
+        className="flex-col-reverse flex-grow py-4 overflow-y-scroll rotate-180 bg-dark-900"
       >
         {loading ? (
           <Spinner className="mx-auto mt-[35vh]" size={32} />
@@ -40,7 +40,7 @@ const Messages = () => {
           });
 
           if (message.id) {
-            data.push(message);
+            data.unshift(message);
             render();
           }
         }}

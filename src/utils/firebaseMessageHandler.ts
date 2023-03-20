@@ -6,7 +6,7 @@ const MESSAGE_COLLECTION = "messages";
 export const getMessages = async (offset: number = 0) => {
   return firestoreInstance()
     .collection(MESSAGE_COLLECTION)
-    .orderBy("time", "asc")
+    .orderBy("time", "desc")
     .offset(offset)
     .limit(15)
     .get();
