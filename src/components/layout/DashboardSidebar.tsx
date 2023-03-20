@@ -69,7 +69,7 @@ export const DashboardSidebar: React.FC<props> = ({}) => {
     <Drawer
       {...value}
       className="pb-10 overflow-y-scroll hide-scroll"
-      permanent={width > 1200}
+      permanent={width > 1024}
     >
       <Logo className="mx-auto my-10" />
       {navGroups.map((navGroup, idx) => (
