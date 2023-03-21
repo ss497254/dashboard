@@ -4,7 +4,7 @@ export const useElementVisible = (
   cb = () => {},
   options?: IntersectionObserverInit
 ) => {
-  const ref = useRef(null);
+  const elementRef = useRef(null);
 
   const callbackFunction: IntersectionObserverCallback = ([entry]) => {
     if (entry.isIntersecting) cb();
@@ -12,12 +12,12 @@ export const useElementVisible = (
 
   useEffect(() => {
     const observer = new IntersectionObserver(callbackFunction, options);
-    if (ref.current) observer.observe(ref.current);
+    if (elementRef.current) observer.observe(elementRef.current);
 
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (elementRef.current) observer.unobserve(elementRef.current);
     };
-  }, [ref, options]);
+  }, [elementRef, options]);
 
-  return { ref };
+  return { elementRef };
 };

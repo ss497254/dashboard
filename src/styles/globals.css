@@ -128,11 +128,11 @@ h4 {
   }
 
   .tick-l + .tick-r {
-    margin-top: 12px;
+    margin-top: 15px;
   }
 
   .tick-r + .tick-l {
-    margin-top: 12px;
+    margin-top: 15px;
   }
 }
 
@@ -151,19 +151,19 @@ button:focus {
 
 @keyframes shake {
   0% {
-    margin-left: 0rem;
+    margin-left: 0px;
   }
   25% {
-    margin-left: 0.5rem;
+    margin-left: 4px;
   }
   50% {
-    margin-left: 0rem;
+    margin-left: 0px;
   }
   75% {
-    margin-left: -0.5rem;
+    margin-left: -4px;
   }
   100% {
-    margin-left: 0rem;
+    margin-left: 0px;
   }
 }
 
@@ -171,6 +171,10 @@ button:focus {
   animation: shake 0.2s ease-in-out 0s 1;
 }
 
-.rotate-180 {
+.rtl {
   direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
 }

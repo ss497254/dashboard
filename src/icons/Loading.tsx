@@ -3,8 +3,6 @@ import * as React from "react";
 export default function Spinner(
   props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-  console.log(props.size);
-
   return (
     <svg
       className={`animate-spin text-button ${props.className}`}

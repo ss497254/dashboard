@@ -10,6 +10,7 @@ import { MessageInputBar } from "src/ui/MessageInputBar";
 
 let messages: MessageType[] = [];
 let noMore = false;
+let isProcessing = false;
 
 const Messages = () => {
   const render = useForceRender();
@@ -18,29 +19,32 @@ const Messages = () => {
   });
   const { run: submit, loading: submitting } = usePost("/api/messages");
 
-  const { ref } = useElementVisible(async () => {
-    if (noMore) return;
+  const { elementRef } = useElementVisible(async () => {
+    if (noMore || isProcessing) return;
+    isProcessing = true;
 
     let data = await run(`?offset=${messages.length}`);
 
     if (data.length === 0) noMore = true;
+
     messages.push(...data);
+    isProcessing = false;
     render();
   });
 
   return (
     <div className="flex-c h-screen-reduction">
-      <div className="flex-col-reverse flex-grow py-4 overflow-y-scroll rotate-180 bg-dark-900">
+      <div className="flex-col-reverse flex-grow py-4 overflow-y-scroll rotate-180 rtl bg-dark-900">
         {messages.map((message) => (
           <MessageBox key={message.id} {...message} />
         ))}
         {loading && <Loading className="mx-auto my-10" size={24} />}
         {noMore && (
-          <div className="mt-10 -mb-4 text-center rotate-180 text-dark-100">
-            No more messages
+          <div className="mt-10 -mb-8 text-center rotate-180 text-dark-100">
+            No more messages left
           </div>
         )}
-        <h4 ref={ref} className="text-center rotate-180 mt-14">
+        <h4 ref={elementRef} className="text-center rotate-180 mt-14">
           Messages
         </h4>
       </div>

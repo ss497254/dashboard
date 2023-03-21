@@ -8,7 +8,7 @@ interface props {
 
 export const Card: React.FC<props> = ({ footer, heading, children }) => {
   return (
-    <div className="border rounded-lg border-dark-700 bg-dark-800">
+    <div className="border rounded-lg border-dark-600 bg-dark-800">
       <h4 className="p-5 text-2xl font-bold md:p-8">{heading}</h4>
       <div className="p-5 text-sm md:p-8 border-y border-dark-600">
         {children}
