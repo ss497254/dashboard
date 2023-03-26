@@ -154,13 +154,13 @@ button:focus {
     margin-left: 0px;
   }
   25% {
-    margin-left: 4px;
+    margin-left: 6px;
   }
   50% {
     margin-left: 0px;
   }
   75% {
-    margin-left: -4px;
+    margin-left: -6px;
   }
   100% {
     margin-left: 0px;

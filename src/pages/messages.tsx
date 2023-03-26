@@ -25,7 +25,7 @@ const Messages = () => {
 
     let data = await run(`?offset=${messages.length}`);
 
-    if (data.length === 0) noMore = true;
+    if (data.length === 0 || data.length != 15) noMore = true;
 
     messages.push(...data);
     isProcessing = false;

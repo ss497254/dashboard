@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PIN_CODE } from "src/data/constants";
-import { generateCookie } from "src/utils/cookies";
+import { getSessionCookie } from "src/utils/cookies";
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,7 +13,7 @@ export default async function handler(
     const { pin_code } = req.body;
 
     if (pin_code === PIN_CODE) {
-      res.setHeader("set-cookie", generateCookie());
+      res.setHeader("set-cookie", getSessionCookie());
       return res.json({ message: "nice", success: true });
     }
 
