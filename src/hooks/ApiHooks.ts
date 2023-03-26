@@ -11,7 +11,7 @@ const DefaultHeader = {
 
 export const useGet = <T>(path: string, options?: QueryOptions) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   const run = useCallback(
     async (parameter: string = "") => {
@@ -52,7 +52,7 @@ export const useGet = <T>(path: string, options?: QueryOptions) => {
 
 export const usePost = (path: string) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   const run = useCallback(
     async (data: any = {}) => {
@@ -92,7 +92,7 @@ export const usePost = (path: string) => {
 
 export const useDelete = (path: string) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   const run = useCallback(
     async (data: any = {}) => {

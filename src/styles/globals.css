@@ -42,9 +42,18 @@ body {
   @apply bg-dark-900 text-white;
 }
 
+#__next {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
 @layer utilities {
   .flex-c {
     @apply flex flex-col;
+  }
+
+  .f {
+    @apply flex;
   }
 
   .c {
