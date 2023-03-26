@@ -5,6 +5,7 @@ import NProgress from "nprogress";
 import React from "react";
 import { Head } from "src/components/Head";
 import { Layout } from "src/components/layout";
+import "src/styles/fonts.css";
 import "src/styles/globals.css";
 import "src/styles/loading-animation.css";
 import "src/styles/nprogress.css";

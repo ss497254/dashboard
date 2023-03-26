@@ -8,8 +8,6 @@ const Settings = () => {
     <div className="p-3 overflow-y-scroll text-2xl md:p-6 lg:p-8 bg-dark-900">
       <DeleteAllMessages />
       <PersistentSession />
-      <DeleteAllMessages />
-      <PersistentSession />
     </div>
   );
 };
