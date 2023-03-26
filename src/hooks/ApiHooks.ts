@@ -55,7 +55,7 @@ export const usePost = (path: string) => {
   const [error, setError] = useState(true);
 
   const run = useCallback(
-    async (data: any) => {
+    async (data: any = {}) => {
       setLoading(true);
       setError(false);
 
@@ -95,7 +95,7 @@ export const useDelete = (path: string) => {
   const [error, setError] = useState(true);
 
   const run = useCallback(
-    async (data: any) => {
+    async (data: any = {}) => {
       setLoading(true);
       setError(false);
 

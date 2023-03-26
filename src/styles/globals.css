@@ -102,6 +102,10 @@ h4 {
   font-size: 1.4rem;
 }
 
+body {
+  @apply bg-dark-900 text-white;
+}
+
 @layer utilities {
   .flex-c {
     @apply flex flex-col;

@@ -16,16 +16,14 @@ export const DeleteAllMessages: React.FC<props> = () => {
           btn="danger"
           loading={loading}
           className="w-48 rounded"
-          onClick={() => {
-            run({});
-          }}
+          onClick={run}
         >
           Delete all messages
         </Button>
       }
     >
-      Permanently remove your Personal Account and all of its contents from the
-      platform. This action is not reversible, so please continue with caution.
+      Permanently remove all your messages from the platform. This action is not
+      reversible, so please continue with caution.
     </Card>
   );
 };
