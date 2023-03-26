@@ -7,5 +7,5 @@ export const getSessionCookie = () => {
 };
 
 export const getPersistentCookie = () => {
-  return `${COOKIE_NAME}=${COOKIE_TOKEN}; path=/; SameSite=Strict; httpOnly=true; max-age=${MaxAge} Secure=${__prod__}`;
+  return `${COOKIE_NAME}=${COOKIE_TOKEN}; path=/; SameSite=Strict; httpOnly=true; Max-Age=${MaxAge}; Secure=${__prod__}`;
 };
