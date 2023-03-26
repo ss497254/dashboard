@@ -83,6 +83,10 @@ body {
   .tick-r + .tick-l {
     margin-top: 15px;
   }
+
+  .border-600 {
+    @apply border border-dark-600;
+  }
 }
 
 ::-webkit-resizer {
