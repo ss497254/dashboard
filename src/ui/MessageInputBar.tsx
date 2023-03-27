@@ -11,7 +11,7 @@ export const MessageInputBar: React.FC<props> = ({ onSubmit, submitting }) => {
   const ref = useRef<HTMLSpanElement>(null);
 
   return (
-    <div className="flex items-end p-3 px-4 bg-dark-800">
+    <div className="flex items-end p-3 px-4 bg-dark-700">
       <ExpandingTextArea name="message" ref={ref} />
       <IconButton
         icon={submitting ? "Loading" : "Rocket"}

@@ -14,8 +14,9 @@ const dirClassNames = {
 };
 
 const bgColor = {
-  dark: "bg-dark-800 text-dark-800",
-  green: "bg-emerald-600 text-emerald-600",
+  dark: "bg-dark-700 text-dark-700",
+  teal: "bg-teal-600 text-teal-600",
+  emerald: "bg-indigo-700 text-indigo-700",
   blue: "bg-blue-600 text-blue-600",
 };
 

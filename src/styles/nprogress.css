@@ -6,7 +6,7 @@
 }
 
 #nprogress .bar {
-  background-color: var(--color-accent);
+  @apply bg-emerald-500;
 
   position: fixed;
   z-index: 100;
@@ -45,9 +45,7 @@
   border: solid 2px transparent;
   border-radius: 50%;
 
-  @apply h-6 w-6;
-  border-top-color: var(--color-accent);
-  border-left-color: var(--color-accent);
+  @apply h-6 w-6 border-t-emerald-500 border-l-emerald-500;
 
   -webkit-animation: nprogress-spinner 500ms linear infinite;
   animation: nprogress-spinner 500ms linear infinite;
