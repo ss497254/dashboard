@@ -21,7 +21,7 @@ export const EnterPinModal: React.FC<props> = ({
 
   return (
     <Modal open={open} setOpen={setOpen}>
-      <form className="p-8 mx-6 rounded-lg shadow-lg border-600 bg-dark-700">
+      <form className="p-8 mx-6 rounded-lg shadow-lg border-500 bg-dark-700">
         <h4 className="mb-8">Enter pin to confirm this action.</h4>
         <input
           name="pin"

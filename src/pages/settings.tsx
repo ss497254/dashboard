@@ -5,7 +5,7 @@ import { getServerSideProps } from "src/lib/getServerSideProps";
 
 const Settings = () => {
   return (
-    <div className="p-3 overflow-y-scroll text-2xl md:p-6 lg:p-8 bg-dark-900">
+    <div className="p-3 text-2xl md:p-6 lg:p-8 bg-dark-900">
       <DeleteAllMessages />
       <PersistentSession />
     </div>

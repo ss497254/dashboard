@@ -15,11 +15,6 @@ export const DashboardNavBar: React.FC<props> = () => {
         className="p-2.5 mr-4 rounded-md bg-dark-600 lg:hidden"
       />
       Dashboard
-      <div className="flex-1" />
-      <IconButton
-        icon="Notification"
-        className="p-2.5 rounded-full bg-dark-600"
-      />
     </div>
   );
 };

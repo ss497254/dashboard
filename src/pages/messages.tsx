@@ -44,7 +44,7 @@ const Messages = () => {
             No more messages left
           </div>
         )}
-        <h4 ref={elementRef} className="text-center rotate-180 mt-14">
+        <h4 ref={elementRef} className="mb-20 text-center rotate-180 mt-14">
           Messages
         </h4>
       </div>

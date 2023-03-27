@@ -13,7 +13,12 @@ export const Modal: React.FC<props> = ({
   setOpen,
   ...props
 }) => {
-  if (!open) return null;
+  if (!open) {
+    document.body.classList.remove("fixed");
+    return null;
+  }
+
+  document.body.classList.add("fixed");
 
   return createPortal(
     <div

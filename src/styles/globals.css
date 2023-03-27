@@ -13,11 +13,12 @@ h4 {
   --color-dark-100: #dee3ea;
   --color-dark-200: #b2bdcd;
   --color-dark-300: #5d7290;
-  --color-dark-500: #2c394b;
-  --color-dark-600: #323d4d;
-  --color-dark-700: #242c37;
-  --color-dark-800: #151a21;
-  --color-dark-900: #0b0e11;
+  --color-dark-400: #2c394b;
+  --color-dark-500: #323d4d;
+  --color-dark-600: #242c37;
+  --color-dark-700: #151a21;
+  --color-dark-800: #0b0e11;
+  --color-dark-900: #000000;
   --color-accent: #fd4d4d;
   --color-brand: #5575e7;
 }
@@ -40,11 +41,6 @@ h4 {
 
 body {
   @apply bg-dark-900 text-white;
-}
-
-#__next {
-  height: 100vh;
-  overflow-y: scroll;
 }
 
 @layer utilities {
@@ -84,8 +80,8 @@ body {
     margin-top: 15px;
   }
 
-  .border-600 {
-    @apply border border-dark-600;
+  .border-500 {
+    @apply border border-dark-500;
   }
 }
 
