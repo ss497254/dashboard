@@ -12,7 +12,7 @@ export const Head = () => {
         content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"
       />
       <link rel="apple-touch-startup-image" href="android-chrome-512x512.png" />
-      <meta name="theme-color" content="#0b0e11" />
+      <meta name="theme-color" content="#0f0f0f" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"

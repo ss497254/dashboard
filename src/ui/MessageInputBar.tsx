@@ -20,7 +20,10 @@ export const MessageInputBar: React.FC<props> = ({ onSubmit, submitting }) => {
 
           onSubmit(ref.current?.innerText || "(empty)");
 
-          if (ref.current) ref.current.innerText = "";
+          if (ref.current) {
+            ref.current.innerText = "";
+            ref.current.focus();
+          }
         }}
         className="p-3 ml-3 rounded-full hover:rounded h-fit bg-dark-600"
       />
