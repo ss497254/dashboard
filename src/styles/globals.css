@@ -83,6 +83,10 @@ body {
   .border-500 {
     @apply border border-dark-500;
   }
+
+  .border-600 {
+    @apply border border-dark-600;
+  }
 }
 
 ::-webkit-resizer {

@@ -17,13 +17,15 @@
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zustand": "^4.3.2"
+    "react-transition-group": "^4.4.5",
+    "zustand": "^4.3.7"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@types/react-transition-group": "^4.4.5",
     "autoprefixer": "^10.4.8",
     "eslint-config-next": "^13.1.5",
     "postcss": "^8.4.14",
