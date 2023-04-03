@@ -1,12 +1,12 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import * as Icons from "../icons";
 import { Spinner } from "./Spinner";
 
 const BtnSizes = {
   tiny: "text-xs px-2.5 py-1",
   small: "text-sm leading-4 px-3 py-2",
-  medium: "text-sm px-4 py-2",
-  large: "text-base px-5 py-2",
+  medium: "text-sm px-5 py-2",
+  large: "text-base px-6 py-2",
   xlarge: "text-base px-7 py-3",
 };
 

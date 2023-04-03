@@ -1,13 +1,13 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
-interface props extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   open: boolean;
   children: React.ReactNode;
   setOpen: (x: boolean) => void;
 }
 
-export const Modal: React.FC<props> = ({
+export const Modal: React.FC<ModalProps> = ({
   open,
   children,
   setOpen,
