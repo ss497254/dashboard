@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
+import { showToast } from "src/lib/showToast";
 
 export interface QueryOptions {
   initialValue?: any;
@@ -35,9 +36,15 @@ export const useGet = <T>(path: string, options?: QueryOptions) => {
           return x;
         }
 
-        console.log(res.text());
+        throw new Error(await res.text());
       } catch (e) {
-        console.error(e);
+        showToast(
+          {
+            message: "API ERROR",
+            desc: (e as Error).message,
+          },
+          "error"
+        );
       }
 
       setLoading(false);
@@ -75,9 +82,15 @@ export const usePost = (path: string) => {
           return res.json();
         }
 
-        console.log(res.text());
+        throw new Error(await res.text());
       } catch (e) {
-        console.error(e);
+        showToast(
+          {
+            message: "API ERROR",
+            desc: (e as Error).message,
+          },
+          "error"
+        );
       }
 
       setLoading(false);
@@ -115,9 +128,15 @@ export const useDelete = (path: string) => {
           return res.json();
         }
 
-        console.log(res.text());
+        throw new Error(await res.text());
       } catch (e) {
-        console.error(e);
+        showToast(
+          {
+            message: "API ERROR",
+            desc: (e as Error).message,
+          },
+          "error"
+        );
       }
 
       setLoading(false);

@@ -4,7 +4,7 @@ import { DashboardNavBar } from "./DashboardNavbar";
 import { DashboardSidebar } from "./DashboardSidebar";
 
 interface props {
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 export const Layout: React.FC<props> = ({ children }) => {

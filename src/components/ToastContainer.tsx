@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useToastStore } from "src/global-stores/useToastStore";
 import { Toast } from "src/ui/Toast";
@@ -7,7 +8,7 @@ const animationDuration = 400;
 export const ToastContainer = () => {
   const { toasts, resume, pause, remove } = useToastStore();
 
-  return (
+  return createPortal(
     <TransitionGroup
       className="toast-container"
       onMouseEnter={pause}
@@ -23,6 +24,7 @@ export const ToastContainer = () => {
           />
         </CSSTransition>
       ))}
-    </TransitionGroup>
+    </TransitionGroup>,
+    document.querySelector("body")!
   );
 };

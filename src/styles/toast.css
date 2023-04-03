@@ -8,6 +8,7 @@
   --duration: 400ms;
   transform: translateX(-50%);
   pointer-events: none;
+  z-index: 1000;
 }
 
 .toast {

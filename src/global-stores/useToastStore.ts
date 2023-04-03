@@ -11,7 +11,7 @@ interface ToastState {
 }
 
 let timeouts = [] as NodeJS.Timeout[];
-const DEFAULT_TIMEOUT = 3000;
+const DEFAULT_DURATION = 3000;
 
 export const useToastStore = create<ToastState>()((set, get) => ({
   toasts: [],
@@ -24,7 +24,7 @@ export const useToastStore = create<ToastState>()((set, get) => ({
       timeouts.push(
         setTimeout(() => {
           remove(newToast.id);
-        }, newToast.duration || DEFAULT_TIMEOUT)
+        }, newToast.duration || DEFAULT_DURATION)
       );
 
       return { toasts: [...toasts.splice(-2), newToast] };
@@ -43,7 +43,7 @@ export const useToastStore = create<ToastState>()((set, get) => ({
         timeouts.push(
           setTimeout(() => {
             remove(toast.id);
-          }, toast.duration || DEFAULT_TIMEOUT)
+          }, toast.duration || DEFAULT_DURATION)
         );
       });
 

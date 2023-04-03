@@ -24,9 +24,9 @@ function App({
   return (
     <>
       <Head />
-      <ToastContainer />
       {Component.auth ? (
         <Layout>
+          <ToastContainer />
           <Component {...pageProps} />
         </Layout>
       ) : (
