@@ -1,7 +1,7 @@
 import React from "react";
+import { CreateChannelButton } from "src/components/CreateChannelButton";
 import { getServerSideProps } from "src/lib/getServerSideProps";
 import { IChannel } from "src/types/ChannelType";
-import { Button } from "src/ui/Button";
 import { ChannelCard } from "src/ui/ChannelCard";
 
 const channels = [
@@ -54,9 +54,7 @@ const Channels = () => {
     <div className="grid p-1 pb-6 md:p-4 bg-dark-900 md:grid-cols-2">
       <div className="justify-between m-4 mt-8 md:col-span-2 f">
         <h4>Channels</h4>
-        <Button className="!px-8 rounded-md" btn="success">
-          Add channel
-        </Button>
+        <CreateChannelButton onSave={(data) => channels.push(data)} />
       </div>
       {channels.map((channel, idx) => (
         <ChannelCard key={idx} {...channel} />
