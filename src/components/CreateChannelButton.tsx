@@ -29,14 +29,14 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
           <>
             <Button
               btn="danger"
-              className="mr-4"
+              className="!px-8 mr-4"
               onClick={() => setOpen(false)}
             >
               Cancel
             </Button>
             <Button
               btn="success"
-              className="!px-7"
+              className="!px-10"
               onClick={() =>
                 handleSubmit(
                   (data) => {
