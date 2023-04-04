@@ -1,5 +1,7 @@
 import React, { memo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { showToast } from "src/lib/showToast";
+import { IChannel } from "src/types/ChannelType";
 import { Button } from "src/ui/Button";
 import { Input } from "src/ui/Input";
 import { OptionButtons } from "src/ui/OptionButtons";
@@ -7,13 +9,13 @@ import { StyledModal } from "src/ui/StyledModal";
 import { TextArea } from "src/ui/TextArea";
 
 interface props {
-  onSave: (x: any) => void;
+  onSave: (x: IChannel) => void;
 }
 
-export const CreateChannelButton: React.FC<props> = memo(() => {
+export const CreateChannelButton: React.FC<props> = memo(({ onSave }) => {
   const [open, setOpen] = useState(false);
-  const [accessValue, setAccessValue] = useState("public");
-  const { register, handleSubmit } = useForm();
+  const [accessValue, setAccessValue] = useState<IChannel["access"]>("public");
+  const { register, handleSubmit, reset } = useForm();
 
   return (
     <>
@@ -37,23 +39,27 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
             <Button
               btn="success"
               className="!px-10"
-              onClick={() =>
-                handleSubmit(
-                  (data) => {
-                    console.log(data);
-                  },
-                  (data) => {
-                    console.log("error", data);
-                  }
-                )()
-              }
+              onClick={handleSubmit(
+                (data: any) => {
+                  onSave({
+                    ...data,
+                    id: new Date().getTime(),
+                    access: accessValue,
+                  });
+                  setOpen(false);
+                  reset();
+                },
+                () => {
+                  showToast({ message: "Cannot create channel" }, "error");
+                }
+              )}
             >
               Save
             </Button>
           </>
         }
       >
-        <Input label="Title" {...register("title")} />
+        <Input label="Name" {...register("name", { required: true })} />
         <TextArea
           label="Description"
           className="min-h-[100px] !resize-none"

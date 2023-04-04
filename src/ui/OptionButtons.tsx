@@ -5,7 +5,7 @@ interface OptionButtonsProps
   label: string;
   options: string[];
   value: string | undefined;
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
   error?: string;
   containerClassName?: string;
 }

@@ -25,7 +25,7 @@ export const Modal: React.FC<ModalProps> = ({
       onClick={(e) => {
         !e.defaultPrevented && setOpen(false);
       }}
-      className="fixed z-[1000] text-white duration-500 c flex-col inset-0 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex-col text-white duration-500 c backdrop-blur-sm"
     >
       <div {...props} onClick={(e) => e.preventDefault()}>
         {children}
