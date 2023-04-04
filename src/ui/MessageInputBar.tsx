@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Loading, Rocket } from "src/icons";
 import { ExpandingTextArea } from "./ExpandingTextArea";
 import { IconButton } from "./IconButton";
 
@@ -14,7 +15,6 @@ export const MessageInputBar: React.FC<props> = ({ onSubmit, submitting }) => {
     <div className="flex items-end p-3 px-4 bg-dark-700">
       <ExpandingTextArea name="message" ref={ref} />
       <IconButton
-        icon={submitting ? "Loading" : "Rocket"}
         onClick={() => {
           if (submitting) return;
 
@@ -25,8 +25,10 @@ export const MessageInputBar: React.FC<props> = ({ onSubmit, submitting }) => {
             ref.current.focus();
           }
         }}
-        className="p-3 ml-3 rounded-full hover:rounded h-fit bg-dark-600"
-      />
+        className="!p-3 ml-3 hover:rounded-full h-fit"
+      >
+        {submitting ? <Loading /> : <Rocket />}
+      </IconButton>
     </div>
   );
 };

@@ -14,7 +14,7 @@ export const ChannelCard: React.FC<props> = ({ access, id, name, desc }) => {
         <Row>
           <h4>{name}</h4>
           <CaretRight
-            className="mr-3 transition-all duration-500 group-hover:mr-1"
+            className="mr-2 transition-all duration-400 group-hover:mr-1"
             size={20}
           />
         </Row>
