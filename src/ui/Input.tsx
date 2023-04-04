@@ -8,7 +8,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, name, containerClassName, error, label, ...props }, ref) => {
+  ({ className, containerClassName, error, label, ...props }, ref) => {
     const id = useMemo(() => Math.random().toString(), []);
 
     return (
@@ -36,5 +36,3 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-
-Input.displayName = "Input";

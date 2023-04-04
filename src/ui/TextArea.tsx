@@ -9,7 +9,7 @@ export interface TextAreaProps
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ className, name, containerClassName, error, label, ...props }, ref) => {
+  ({ className, containerClassName, error, label, ...props }, ref) => {
     const id = useMemo(() => Math.random().toString(), []);
 
     return (
@@ -20,7 +20,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           containerClassName,
         ].join(" ")}
       >
-        <label htmlFor={id} className="text-dark-200 group">
+        <label htmlFor={id} className="text-dark-200">
           {label}
         </label>
         <textarea
