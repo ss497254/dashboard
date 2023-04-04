@@ -2,6 +2,7 @@ import React, { memo, useState } from "react";
 import { Button } from "src/ui/Button";
 import { Input } from "src/ui/Input";
 import { StyledModal } from "src/ui/StyledModal";
+import { TextArea } from "src/ui/TextArea";
 
 interface props {
   onSave: (x: any) => void;
@@ -20,7 +21,7 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
         Add channel
       </Button>
       <StyledModal
-        className="max-w-lg w-[90vw]"
+        className="max-w-lg w-[90vw] f flex-col space-y-4"
         heading="Create channel"
         open={open}
         setOpen={setOpen}
@@ -43,7 +44,8 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
           </>
         }
       >
-        <Input />
+        <Input label="Title" />
+        <TextArea label="Description" />
       </StyledModal>
     </>
   );
