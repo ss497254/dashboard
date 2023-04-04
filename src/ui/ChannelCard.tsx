@@ -13,19 +13,32 @@ export const ChannelCard: React.FC<props> = memo(
       <div className="p-4 m-3 rounded-md lg:p-6 group bg-dark-700 border-500">
         <Link href={`/channels/${id}`} className="group-hover:underline">
           <Row>
-            <h4>{name}</h4>
+            <h4 title={name} className="line-clamp-1">
+              {name}
+            </h4>
             <CaretRight
               className="mr-2 transition-all duration-400 group-hover:mr-1"
               size={20}
             />
           </Row>
         </Link>
-        <p className="h-[72px] mt-3 mb-6 overflow-hidden">{desc}</p>
+        <p
+          title={desc}
+          className="h-[72px] whitespace-pre-line line-clamp-3 mt-3 mb-6 overflow-hidden"
+        >
+          {desc}
+        </p>
         <Row>
           <Badge
             size="sm"
             className="capitalize"
-            type={access === "public" ? "green" : "default"}
+            type={
+              access !== "private"
+                ? access === "public"
+                  ? "green"
+                  : "default"
+                : "yellow"
+            }
           >
             {access}
           </Badge>

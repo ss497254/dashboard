@@ -12,7 +12,7 @@ interface props {
   onSave: (x: IChannel) => void;
 }
 
-const AccessOptions = ["private", "public"];
+const AccessOptions = ["private", "public-read", "public"];
 
 export const CreateChannelButton: React.FC<props> = memo(({ onSave }) => {
   const [open, setOpen] = useState(false);

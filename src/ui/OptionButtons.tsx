@@ -31,7 +31,7 @@ export const OptionButtons: React.FC<OptionButtonsProps> = ({
       <div className="text-dark-200">{label}</div>
       <div
         className={[
-          "overflow-hidden rounded-md w-full my-1.5 f",
+          "overflow-hidden rounded-md space-x-0.5 w-full my-1.5 f",
           className,
         ].join(" ")}
         {...props}
@@ -43,7 +43,7 @@ export const OptionButtons: React.FC<OptionButtonsProps> = ({
               onChange(option);
             }}
             className={[
-              "py-2 flex-grow focus:ring-0 transition-all duration-200",
+              "py-2 flex-1 focus:ring-0 transition-all duration-200",
               value === option ? "bg-emerald-500" : "bg-dark-700",
             ].join(" ")}
           >

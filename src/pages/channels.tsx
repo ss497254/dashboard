@@ -29,8 +29,8 @@ const Channels = () => {
         <h4>Channels</h4>
         <CreateChannelButton onSave={onSave} />
       </div>
-      {channels.map((channel, idx) => (
-        <ChannelCard key={idx} {...channel} />
+      {channels.map((channel) => (
+        <ChannelCard key={channel.id} {...channel} />
       ))}
     </div>
   );
