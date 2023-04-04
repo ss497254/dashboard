@@ -12,9 +12,13 @@ interface props {
   onSave: (x: IChannel) => void;
 }
 
+const AccessOptions = ["private", "public"];
+
 export const CreateChannelButton: React.FC<props> = memo(({ onSave }) => {
   const [open, setOpen] = useState(false);
-  const [accessValue, setAccessValue] = useState<IChannel["access"]>("public");
+  const [accessValue, setAccessValue] = useState<IChannel["access"]>(
+    AccessOptions[0] as "private"
+  );
   const { register, handleSubmit, reset } = useForm();
 
   return (
@@ -59,7 +63,11 @@ export const CreateChannelButton: React.FC<props> = memo(({ onSave }) => {
           </>
         }
       >
-        <Input label="Name" {...register("name", { required: true })} />
+        <Input
+          label="Name"
+          required
+          {...register("name", { required: true })}
+        />
         <TextArea
           label="Description"
           className="min-h-[100px] !resize-none"
@@ -67,7 +75,7 @@ export const CreateChannelButton: React.FC<props> = memo(({ onSave }) => {
         />
         <OptionButtons
           onChange={setAccessValue}
-          options={["public", "private"]}
+          options={AccessOptions}
           label="Access"
           value={accessValue}
         />

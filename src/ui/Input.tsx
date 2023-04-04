@@ -9,7 +9,10 @@ export interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, containerClassName, error, label, ...props }, ref) => {
+  (
+    { className, containerClassName, error, label, required, ...props },
+    ref
+  ) => {
     const id: any = useMemo(generateId, []);
 
     return (
@@ -17,6 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={[
           "overflow-hidden text-sm rounded min-h-[64px] focus-within:ring-1 bg-dark-600",
           error && "ring-red-600 ring-1",
+          required && "field-required",
           containerClassName,
         ].join(" ")}
       >
@@ -26,6 +30,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           id={id}
           ref={ref}
+          required={required}
           className={[
             "w-full pb-3 px-3 placeholder-dark-300 bg-inherit focus:outline-none",
             className,
