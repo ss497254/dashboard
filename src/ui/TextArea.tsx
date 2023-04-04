@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import React, { forwardRef, useMemo } from "react";
+import { generateId } from "src/utils/lodash";
 
 export interface TextAreaProps
   extends React.ComponentPropsWithoutRef<"textarea"> {
@@ -10,24 +11,24 @@ export interface TextAreaProps
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, containerClassName, error, label, ...props }, ref) => {
-    const id = useMemo(() => Math.random().toString(), []);
+    const id: any = useMemo(generateId, []);
 
     return (
       <div
         className={[
-          "px-3 py-2 overflow-hidden text-sm resize-y flex-c min-h-[80px] rounded focus-within:ring-1 group bg-dark-600",
+          "overflow-hidden text-sm rounded focus-within:ring-1 bg-dark-600",
           error && "ring-red-600 ring-1",
           containerClassName,
         ].join(" ")}
       >
-        <label htmlFor={id} className="text-dark-200">
+        <label htmlFor={id} className="block px-3 pt-2 pb-1 text-dark-200">
           {label}
         </label>
         <textarea
           id={id}
           ref={ref}
           className={[
-            "w-full py-1 placeholder-dark-300 resize-none flex-grow bg-inherit focus:outline-none",
+            "w-full pb-3 px-3 placeholder-dark-300 resize-y bg-inherit focus:outline-none",
             className,
           ].join(" ")}
           {...props}

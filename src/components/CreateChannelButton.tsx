@@ -2,6 +2,7 @@ import React, { memo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "src/ui/Button";
 import { Input } from "src/ui/Input";
+import { OptionButtons } from "src/ui/OptionButtons";
 import { StyledModal } from "src/ui/StyledModal";
 import { TextArea } from "src/ui/TextArea";
 
@@ -11,7 +12,8 @@ interface props {
 
 export const CreateChannelButton: React.FC<props> = memo(() => {
   const [open, setOpen] = useState(false);
-  const { register, handleSubmit, formState } = useForm();
+  const [accessValue, setAccessValue] = useState("public");
+  const { register, handleSubmit } = useForm();
 
   return (
     <>
@@ -58,8 +60,14 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
         <Input label="Title" {...register("title")} />
         <TextArea
           label="Description"
-          className="min-h-[100px]"
+          className="min-h-[100px] !resize-none"
           {...register("desc")}
+        />
+        <OptionButtons
+          onChange={setAccessValue}
+          options={["public", "private"]}
+          label="Access"
+          value={accessValue}
         />
       </StyledModal>
     </>
