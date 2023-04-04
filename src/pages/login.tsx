@@ -45,7 +45,7 @@ export default function Login() {
             onSubmit(value);
           }}
           size="xlarge"
-          className="w-full font-semibold rounded-lg"
+          className="w-full font-semibold !rounded-lg"
         >
           Submit
         </Button>

@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  let classes = ["relative c text-white"];
+  let classes = ["relative c text-white rounded-md"];
 
   classes.push(ButtonType[btn]);
 

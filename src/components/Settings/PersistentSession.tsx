@@ -15,7 +15,7 @@ export const PersistentSession: React.FC<props> = () => {
         <Button
           btn="success"
           loading={loading}
-          className="w-48 rounded"
+          className="w-48"
           onClick={() => {
             run();
           }}

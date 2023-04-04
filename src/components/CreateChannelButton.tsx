@@ -17,11 +17,7 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
 
   return (
     <>
-      <Button
-        className="!px-8 rounded-md"
-        btn="success"
-        onClick={() => setOpen(!open)}
-      >
+      <Button className="!px-8" btn="success" onClick={() => setOpen(!open)}>
         Add channel
       </Button>
       <StyledModal
@@ -33,14 +29,14 @@ export const CreateChannelButton: React.FC<props> = memo(() => {
           <>
             <Button
               btn="danger"
-              className="mr-4 rounded-md"
+              className="mr-4"
               onClick={() => setOpen(false)}
             >
               Cancel
             </Button>
             <Button
               btn="success"
-              className="!px-7 rounded-md"
+              className="!px-7"
               onClick={() =>
                 handleSubmit(
                   (data) => {

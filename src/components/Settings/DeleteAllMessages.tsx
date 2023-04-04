@@ -14,11 +14,7 @@ export const DeleteAllMessages: React.FC<props> = () => {
     <Card
       heading="Delete all messages"
       footer={
-        <Button
-          btn="danger"
-          className="w-48 rounded"
-          onClick={() => setOpen(true)}
-        >
+        <Button btn="danger" className="w-48" onClick={() => setOpen(true)}>
           Delete all messages
         </Button>
       }

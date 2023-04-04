@@ -33,11 +33,7 @@ const Error404: NextPage = ({}) => {
           <p>We couldn't find the page that you're looking for!</p>
         </div>
         <Link href="/">
-          <Button
-            btn="success"
-            className="font-semibold rounded-md"
-            size="medium"
-          >
+          <Button btn="success" className="font-semibold" size="medium">
             Go Home
           </Button>
         </Link>

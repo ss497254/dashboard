@@ -46,7 +46,7 @@ export const EnterPinModal: React.FC<props> = ({
             setPin("");
           }}
           size="xlarge"
-          className="w-full rounded-lg"
+          className="w-full !rounded-lg"
         >
           Submit
         </Button>
