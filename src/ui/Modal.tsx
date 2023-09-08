@@ -1,34 +1,41 @@
 import React from "react";
 import { createPortal } from "react-dom";
+import { CloseIcon } from "../icons";
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   open: boolean;
   children: React.ReactNode;
-  setOpen: (x: boolean) => void;
+  onClose: () => void;
 }
 
 export const Modal: React.FC<ModalProps> = ({
   open,
+  className,
   children,
-  setOpen,
+  onClose,
   ...props
 }) => {
   if (!open) {
-    document.body.classList.remove("fixed");
+    document.body.classList.remove("modal-body-fixed");
     return null;
   }
 
-  document.body.classList.add("fixed");
+  document.body.classList.add("modal-body-fixed");
 
   return createPortal(
     <div
-      onClick={(e) => {
-        !e.defaultPrevented && setOpen(false);
-      }}
-      className="fixed inset-0 z-50 flex-col text-white duration-500 c backdrop-blur-sm"
+      className="absolute inset-0 c bg-zinc-900/50 z-50 backdrop-blur-sm"
+      onClick={onClose}
     >
-      <div {...props} onClick={(e) => e.preventDefault()}>
+      <div
+        className={["rounded-lg modal-container r", className].join(" ")}
+        onClick={(e) => e.stopPropagation()}
+        {...props}
+      >
         {children}
+        <button onClick={onClose} className="absolute top-0 right-0 p-2">
+          <CloseIcon size={22} />
+        </button>
       </div>
     </div>,
     document.querySelector("body")!
