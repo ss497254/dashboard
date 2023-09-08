@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  color-scheme: dark;
+}
+
 h1,
 h2,
 h3,
 h4 {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 :root {
@@ -54,6 +58,10 @@ body {
 
   .c {
     @apply flex justify-center items-center;
+  }
+
+  .r {
+    @apply relative;
   }
 
   .tick-l::after {

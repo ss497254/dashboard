@@ -30,7 +30,7 @@ export const CreateChannelButton: React.FC<props> = memo(({ onSave }) => {
         className="max-w-lg w-[90vw] space-y-4 flex-c"
         heading="Create channel"
         open={open}
-        setOpen={setOpen}
+        onClose={() => setOpen(false)}
         footer={
           <>
             <Button

@@ -28,7 +28,7 @@ export const Modal: React.FC<ModalProps> = ({
       onClick={onClose}
     >
       <div
-        className={["rounded-lg modal-container r", className].join(" ")}
+        className={["modal-container r", className].join(" ")}
         onClick={(e) => e.stopPropagation()}
         {...props}
       >
