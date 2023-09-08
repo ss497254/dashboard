@@ -1,6 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
-function BotIcon(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
+export function BotIcon(
+  props: React.SVGProps<SVGSVGElement> & { size?: number }
+) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,5 +17,3 @@ function BotIcon(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
     </svg>
   );
 }
-
-export default BotIcon;

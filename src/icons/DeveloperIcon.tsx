@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-function DeveloperIcon(
+export function DeveloperIcon(
   props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
   return (
@@ -19,5 +19,3 @@ function DeveloperIcon(
     </svg>
   );
 }
-
-export default DeveloperIcon;
