@@ -12,10 +12,10 @@ export function DashboardIcon(
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <rect x="2" y="2" width="9" height="11" rx="2"></rect>
-      <rect x="13" y="2" width="9" height="7" rx="2"></rect>
-      <rect x="2" y="15" width="9" height="7" rx="2"></rect>
-      <rect x="13" y="11" width="9" height="11" rx="2"></rect>
+      <rect x="0" y="0" width="10" height="11" rx="2"></rect>
+      <rect x="14" y="0" width="10" height="7" rx="2"></rect>
+      <rect x="0" y="15" width="10" height="9" rx="2"></rect>
+      <rect x="14" y="11" width="10" height="13" rx="2"></rect>
     </svg>
   );
 }
