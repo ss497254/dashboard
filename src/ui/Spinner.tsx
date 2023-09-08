@@ -6,7 +6,7 @@ export const Spinner: React.FC<{ size?: number; className?: string }> = ({
 }) => {
   return (
     <svg
-      className={`animate-spin text-button ${className}`}
+      className={`animate-spin text-button ${className || ""}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"

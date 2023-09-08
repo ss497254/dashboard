@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-expressions */
-import React, { forwardRef, useMemo } from "react";
-import { generateId } from "src/utils/lodash";
+import React, { forwardRef, useId } from "react";
 
 export interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
   label: string;
@@ -13,7 +11,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     { className, containerClassName, error, label, required, ...props },
     ref
   ) => {
-    const id: any = useMemo(generateId, []);
+    const id = useId();
 
     return (
       <div

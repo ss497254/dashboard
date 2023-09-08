@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-expressions */
-import React, { forwardRef, useMemo } from "react";
-import { generateId } from "src/utils/lodash";
+import React, { forwardRef, useId } from "react";
 
 export interface TextAreaProps
   extends React.ComponentPropsWithoutRef<"textarea"> {
@@ -14,7 +12,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     { className, containerClassName, error, label, required, ...props },
     ref
   ) => {
-    const id: any = useMemo(generateId, []);
+    const id = useId();
 
     return (
       <div

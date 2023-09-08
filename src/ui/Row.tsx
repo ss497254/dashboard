@@ -10,7 +10,7 @@ export const Row: React.FC<props> = ({ children, className, ...props }) => {
       className={["f justify-between items-center", className].join(" ")}
       {...props}
     >
-      {children}{" "}
+      {children}
     </div>
   );
 };
