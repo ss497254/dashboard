@@ -9,7 +9,8 @@ html {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-weight: 500;
 }
 
@@ -43,8 +44,13 @@ h4 {
   font-size: 1.4rem;
 }
 
-body {
-  @apply bg-dark-900 text-white;
+h5 {
+  font-size: 1.2rem;
+}
+
+body,
+#__next {
+  @apply bg-dark-900 text-white h-full;
 }
 
 @layer utilities {
