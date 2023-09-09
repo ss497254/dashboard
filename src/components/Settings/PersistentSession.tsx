@@ -1,12 +1,12 @@
 import React from "react";
-import { useGet } from "src/hooks/ApiHooks";
-import { Button } from "src/ui/Button";
+import { usePost } from "src/hooks/ApiHooks";
+import { Button } from "src/ui/Buttons";
 import { Card } from "src/ui/Card";
 
 interface props {}
 
 export const PersistentSession: React.FC<props> = () => {
-  const { run, loading } = useGet("/api/get-persistent-session");
+  const { run, loading } = usePost("/persistent-session");
 
   return (
     <Card
