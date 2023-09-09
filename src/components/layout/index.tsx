@@ -11,7 +11,7 @@ export const Layout: React.FC<props> = ({ children }) => {
   if (useClientOnly()) return null;
 
   return (
-    <main className="lg:pl-[280px] pt-14 selection:text-sky-50 selection:bg-emerald-700 flex-c min-h-screen">
+    <main className="lg:ml-[280px] pt-14 selection:text-sky-50 selection:bg-emerald-700">
       <DashboardNavBar />
       {children}
       <DashboardSidebar />

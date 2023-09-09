@@ -1,16 +1,15 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useSidebarDrawerStore } from "src/global-stores/useSidebarDrawerStore";
-import { useWindowSizeStore } from "src/global-stores/useWindowSizeStore";
 import {
-  Compass,
-  Home,
-  Messages,
-  Notification,
-  Settings,
-  User,
-  Warning,
+  ChatsIcon,
+  DashboardIcon,
+  MusicIcon,
+  NotificationIcon,
+  SettingsIcon,
+  WarningIcon,
 } from "src/icons";
+import { useSidebarDrawerStore } from "src/stores/useSidebarDrawerStore";
+import { useWindowSizeStore } from "src/stores/useWindowSizeStore";
 import { Drawer } from "src/ui/Drawer";
 import { Logo } from "src/ui/Logo";
 import { NavItemGroup } from "src/ui/Sidebar/NavItemGroup";
@@ -19,10 +18,14 @@ const navGroups = [
   {
     heading: "Main",
     items: [
-      { href: "/", icon: <Home size={18} />, title: "Home" },
+      {
+        href: "/",
+        icon: <DashboardIcon size={18} />,
+        title: "Home",
+      },
       {
         href: "/notifications",
-        icon: <Notification />,
+        icon: <NotificationIcon size={18} />,
         title: "Notifications",
       },
     ],
@@ -30,16 +33,19 @@ const navGroups = [
   {
     heading: "Chats",
     items: [
-      { href: "/messages", icon: <Messages />, title: "Messages" },
-      { href: "/channels", icon: <Compass />, title: "Channels" },
+      { href: "/music", icon: <MusicIcon size={18} />, title: "Music" },
+      { href: "/channels", icon: <ChatsIcon size={18} />, title: "Channels" },
     ],
   },
   {
     heading: "Manage",
     items: [
-      { href: "/profile", icon: <User />, title: "Profile" },
-      { href: "/server", icon: <Warning />, title: "Server" },
-      { href: "/settings", icon: <Settings />, title: "Settings" },
+      { href: "/server", icon: <WarningIcon />, title: "Server" },
+      {
+        href: "/settings",
+        icon: <SettingsIcon size={18} />,
+        title: "Settings",
+      },
     ],
   },
 ];
