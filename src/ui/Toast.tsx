@@ -1,12 +1,12 @@
 import { memo } from "react";
-import { CloseIcon, Help, SolidCloseIcon, SolidTick, Warning } from "src/icons";
+import { HelpIcon, CloseIcon, TickIcon, WarningIcon } from "src/icons";
 
 const STACKING_OVERLAP = 0.9;
 const notification_types = {
-  success: <SolidTick size={26} />,
-  error: <SolidCloseIcon size={24} />,
-  info: <Help size={22} />,
-  warning: <Warning size={20} />,
+  success: <TickIcon size={26} />,
+  error: <CloseIcon size={24} />,
+  info: <HelpIcon size={22} />,
+  warning: <WarningIcon size={20} />,
 };
 
 export interface ToastProps {
@@ -35,7 +35,7 @@ export const Toast = memo(
             "--scale": scale,
             "--y": `${y}%`,
             "--opacity": `${opacity}%`,
-          } as any
+          } as React.CSSProperties
         }
       >
         <div className="border-600 toast-inner">
