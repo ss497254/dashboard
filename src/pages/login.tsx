@@ -1,51 +1,63 @@
 import Router from "next/router";
-import React, { useCallback, useState } from "react";
+import React, { FormEvent, useCallback, useState } from "react";
 import { usePost } from "src/hooks/ApiHooks";
-import { Button } from "src/ui/Button";
+import { useConfigStore } from "src/stores/useConfigStore";
+import { Button } from "src/ui/Buttons";
+import { Input } from "src/ui/Input";
 
 export default function Login() {
-  const [value, setValue] = useState("");
-  const [error, setError] = useState("");
+  const update = useConfigStore((state) => state.update);
 
-  const { run, loading } = usePost("/api/login");
+  const { run, loading, error } = usePost("/user/login");
 
-  const onSubmit = useCallback(async (pin_code: string) => {
-    const res = await run({ pin_code });
+  const onSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    if (res && res.success) return Router.replace("/");
+    const form = e.currentTarget;
+    const { value: username } = form.elements.namedItem(
+      "username"
+    ) as HTMLInputElement;
+    const { value: password } = form.elements.namedItem(
+      "password"
+    ) as HTMLInputElement;
 
-    setError("INVALID CODE");
+    const res = await run({ username, password });
+
+    if (res && res.success) {
+      update("user", res.data.user);
+      update("token", res.data.token);
+
+      return Router.replace("/");
+    }
   }, []);
 
   return (
     <div className="h-screen px-6 flex-c bg-dark-900 c">
-      <form className="p-8 rounded-lg shadow-lg bg-dark-700">
+      <form
+        className="p-8 rounded-lg shadow-lg bg-dark-700 space-y-5"
+        onSubmit={onSubmit}
+      >
         <img src="/logo.png" className="w-32 h-32 mx-auto mb-12" />
-        <input
-          name="pin_code"
+        <Input required label="username" name="username" error={error} />
+        <Input
+          required
+          label="password"
+          name="password"
           type="password"
-          placeholder="Pin"
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-            setError("");
-          }}
-          className={`p-3 mb-6 font-semibold md:w-80 placeholder:text-dark-100 text-white border-2 rounded-lg outline-none bg-dark-600 ${
-            error ? "border-red-500 shake" : "border-dark-300"
-          }`}
+          error={error}
         />
-        {error && <div className="mb-4 ml-4 -mt-5 text-red-400">{error}</div>}
+        {error && (
+          <div className="mb-4 ml-4 -mt-5 text-red-400 text-center">
+            {error}
+          </div>
+        )}
         <Button
           btn="success"
           type="submit"
-          disabled={!!error}
+          iconSize={28}
           loading={loading}
-          onClick={(e) => {
-            e.preventDefault();
-            onSubmit(value);
-          }}
-          size="xlarge"
-          className="w-full font-semibold !rounded-lg"
+          size="xl"
+          className={["w-full md:w-80", error ? "shake" : ""].join(" ")}
         >
           Submit
         </Button>
