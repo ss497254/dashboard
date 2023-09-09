@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { showToast } from "src/lib/showToast";
 import { IChannel } from "src/types/ChannelType";
-import { Button } from "src/ui/Button";
+import { Button } from "src/ui/Buttons";
 import { Input } from "src/ui/Input";
 import { OptionButtons } from "src/ui/OptionButtons";
 import { StyledModal } from "src/ui/StyledModal";
