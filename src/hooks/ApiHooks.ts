@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { API_URL } from "src/data/constants";
 import { showToast } from "src/lib/showToast";
 
 export interface QueryOptions {
@@ -20,8 +21,7 @@ export const useGet = <T>(path: string, options?: QueryOptions) => {
       setError(false);
 
       try {
-        const res = await fetch(path + parameter, {
-          credentials: "include",
+        const res = await fetch(API_URL + path + parameter, {
           method: "GET",
           headers: DefaultHeader,
         });
@@ -67,8 +67,7 @@ export const usePost = (path: string) => {
       setError(false);
 
       try {
-        const res = await fetch(path, {
-          credentials: "include",
+        const res = await fetch(API_URL + path, {
           headers: DefaultHeader,
           method: "POST",
           body: JSON.stringify(data),
@@ -113,8 +112,7 @@ export const useDelete = (path: string) => {
       setError(false);
 
       try {
-        const res = await fetch(path, {
-          credentials: "include",
+        const res = await fetch(API_URL + path, {
           headers: DefaultHeader,
           method: "DELETE",
           body: JSON.stringify(data),
