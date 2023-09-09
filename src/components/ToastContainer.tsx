@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { useToastStore } from "src/global-stores/useToastStore";
+import { useToastStore } from "src/stores/useToastStore";
 import { Toast } from "src/ui/Toast";
 
 const animationDuration = 400;
