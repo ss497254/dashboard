@@ -32,7 +32,7 @@ export const getMessageStore = (channel: string) => {
       const newMessage: IMessage = {
         username: "ss497254",
         content,
-        timestamp: new Date().getTime(),
+        timestamp: new Date().toString(),
       };
       await new Promise((res) => setTimeout(res, 2000));
       set((state) => ({

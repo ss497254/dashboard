@@ -1,6 +1,6 @@
 export interface IMessage {
   content: string;
   username: string;
-  timestamp: number;
+  timestamp: string;
   delivered?: boolean;
 }
