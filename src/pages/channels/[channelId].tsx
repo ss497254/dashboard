@@ -1,19 +1,17 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { getServerSideProps } from "src/lib/getServerSideProps";
+import { ChatScreen } from "src/components/ChatScreen";
 
 const Channels = () => {
   const router = useRouter();
 
   return (
-    <div className="flex-grow text-2xl font-bold bg-dark-900 c">
-      channel_id {router.query["channelId"]}
+    <div className="bg-dark-900 h-screen-reduction">
+      <ChatScreen channel={router.query["channelId"] + ""} />
     </div>
   );
 };
 
 Channels.auth = true;
-
-export { getServerSideProps };
 
 export default Channels;
