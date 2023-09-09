@@ -22,7 +22,7 @@ export const UserCard: React.FC<props> = () => {
         </Button>
       }
     >
-      <Input label="username" value={user.username} />
+      <Input label="username" value={user.username} onChange={() => {}} />
     </Card>
   );
 };
