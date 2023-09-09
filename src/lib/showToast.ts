@@ -1,4 +1,4 @@
-import { useToastStore } from "src/global-stores/useToastStore";
+import { useToastStore } from "src/stores/useToastStore";
 import { IToast, ToastType } from "src/types/ToastType";
 
 export const showToast = (

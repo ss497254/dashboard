@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export const useChatScroll = () => {
+export const useScrollToBottom = () => {
   const ref = useRef<any>();
 
   return {
