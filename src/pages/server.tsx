@@ -1,5 +1,4 @@
 import React from "react";
-import { getServerSideProps } from "src/lib/getServerSideProps";
 
 const Server = () => {
   return (
@@ -8,7 +7,5 @@ const Server = () => {
 };
 
 Server.auth = true;
-
-export { getServerSideProps };
 
 export default Server;

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button } from "src/ui/Button";
+import { Button } from "src/ui/Buttons";
 
 const Error404: NextPage = ({}) => {
   const [show404, setShow404] = useState<boolean>(false);
@@ -13,7 +13,7 @@ const Error404: NextPage = ({}) => {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-screen text-white bg-gray-900">
+    <div className="relative flex flex-col items-center justify-center w-full h-screen text-white bg-dark-900">
       <div
         className={`select-none opacity-10 filter transition duration-200 ${
           show404 ? "blur-sm" : "blur-none"
@@ -33,7 +33,7 @@ const Error404: NextPage = ({}) => {
           <p>We couldn't find the page that you're looking for!</p>
         </div>
         <Link href="/">
-          <Button btn="success" className="font-semibold" size="medium">
+          <Button btn="success" className="font-semibold" size="md">
             Go Home
           </Button>
         </Link>

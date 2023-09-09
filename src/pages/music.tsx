@@ -1,6 +1,5 @@
 import { ChatScreen } from "src/components/ChatScreen";
 import { CHAT_GPT_VERSION } from "src/data/constants";
-import { getServerSideProps } from "src/lib/getServerSideProps";
 
 const Messages = () => {
   return (
@@ -11,7 +10,5 @@ const Messages = () => {
 };
 
 Messages.auth = true;
-
-export { getServerSideProps };
 
 export default Messages;

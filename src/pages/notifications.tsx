@@ -1,5 +1,4 @@
-import { useToastStore } from "src/global-stores/useToastStore";
-import { getServerSideProps } from "src/lib/getServerSideProps";
+import { useToastStore } from "src/stores/useToastStore";
 import { ToastTypes } from "src/types/ToastType";
 import { randomNumberFromRange } from "src/utils/lodash";
 
@@ -27,7 +26,5 @@ const Notifications = () => {
 };
 
 Notifications.auth = true;
-
-export { getServerSideProps };
 
 export default Notifications;
