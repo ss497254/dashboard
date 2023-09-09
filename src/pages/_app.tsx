@@ -2,7 +2,6 @@ import { AppProps } from "next/app";
 import Router from "next/router";
 import { NextPageContext } from "next/types";
 import NProgress from "nprogress";
-import { Head } from "src/components/Head";
 import { ToastContainer } from "src/components/ToastContainer";
 import { Layout } from "src/components/layout";
 import { useConfigStore } from "src/stores/useConfigStore";
@@ -33,22 +32,14 @@ function App({
     }
 
     return (
-      <>
-        <Head />
-        <Layout>
-          <ToastContainer />
-          <Component {...pageProps} />
-        </Layout>
-      </>
+      <Layout>
+        <ToastContainer />
+        <Component {...pageProps} />
+      </Layout>
     );
   }
 
-  return (
-    <>
-      <Head />
-      <Component {...pageProps} />
-    </>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default App;
