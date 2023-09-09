@@ -135,7 +135,7 @@ button:focus {
 }
 
 .shake {
-  animation: shake 0.2s ease-in-out 0s 1;
+  animation: shake 0.1s ease-in-out 0s 2;
 }
 
 .rtl {
@@ -148,7 +148,6 @@ button:focus {
 
 .field-required > label:after {
   content: "*";
-  margin-left: 2px;
-  margin-top: -2px;
+  margin-left: 4px;
   @apply text-red-500;
 }
