@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.tsx", "./public/index.html"],
+  content: ["./src/**/*.{tsx,ts}", "./public/index.html"],
   theme: {
     fontFamily: {
       sans: [
@@ -35,9 +35,7 @@ module.exports = {
       outline: {
         "no-chrome": "none",
       },
-      transitionTimingFunction: {
-        "in-out-hard": "cubic-bezier(.77, 0, .175, 1)",
-      },
+
       transitionDuration: {
         400: "400ms",
       },
@@ -54,7 +52,6 @@ module.exports = {
         },
       },
       animation: {
-        DEFAULT: "1s ease-in-out infinite",
         "breathe-slow": "breathe 5s infinite ease-in-out",
       },
     },
