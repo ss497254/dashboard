@@ -4,7 +4,7 @@ export interface TextAreaProps
   extends React.ComponentPropsWithoutRef<"textarea"> {
   label: string;
   containerClassName?: string;
-  error?: string;
+  error?: string | boolean;
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -23,7 +23,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           containerClassName,
         ].join(" ")}
       >
-        <label htmlFor={id} className="block px-3 pt-2 pb-1 text-dark-200">
+        <label htmlFor={id} className="block px-3 pt-2 text-dark-200">
           {label}
         </label>
         <textarea
@@ -31,12 +31,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           ref={ref}
           required={required}
           className={[
-            "w-full pb-3 px-3 placeholder-dark-300 resize-y bg-inherit focus:outline-none",
+            "w-full pb-3 px-3 pt-1.5 placeholder-dark-300 resize-y bg-inherit focus:outline-none",
             className,
           ].join(" ")}
           {...props}
         ></textarea>
-        <p className="-my-1 text-xs text-red-300">{error}</p>
+        {typeof error === "string" && (
+          <p className="-my-1 text-xs text-red-300">{error}</p>
+        )}
       </div>
     );
   }

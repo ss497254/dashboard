@@ -24,11 +24,11 @@ export const Modal: React.FC<ModalProps> = ({
 
   return createPortal(
     <div
-      className="absolute inset-0 c bg-zinc-900/50 z-50 backdrop-blur-sm"
+      className="absolute inset-0 c bg-black/50 z-50 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className={["modal-container r", className].join(" ")}
+        className={["modal-container r shadow-xl", className].join(" ")}
         onClick={(e) => e.stopPropagation()}
         {...props}
       >
