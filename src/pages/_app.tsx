@@ -4,6 +4,7 @@ import { NextPageContext } from "next/types";
 import NProgress from "nprogress";
 import { ToastContainer } from "src/components/ToastContainer";
 import { Layout } from "src/components/layout";
+import { isServer } from "src/lib/isServer";
 import { useConfigStore } from "src/stores/useConfigStore";
 import "src/styles/fonts.css";
 import "src/styles/globals.css";
@@ -13,7 +14,7 @@ import "src/styles/nprogress.css";
 import "src/styles/scrollbar.css";
 import "src/styles/toast.css";
 import { PageComponent } from "src/types/PageComponent";
-import Error404 from "./404";
+import { CenterLoading } from "src/ui/CenterLoading";
 
 Router.events.on("routeChangeStart", NProgress.start);
 Router.events.on("routeChangeComplete", NProgress.done);
@@ -27,8 +28,9 @@ function App({
 
   if (Component.auth) {
     if (!user) {
-      Router.replace("/login");
-      return <Error404 />;
+      if (!isServer) Router.replace("/login");
+
+      return <CenterLoading />;
     }
 
     return (
